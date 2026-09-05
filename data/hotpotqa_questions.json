@@ -1,0 +1,610 @@
+{
+  "questions": [
+    {
+      "id": "HP001",
+      "text": "In what year was the university where Sergei Aleksandrovich Tokarev was a professor founded?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "1755",
+      "expected_keywords": [
+        "1755"
+      ]
+    },
+    {
+      "id": "HP002",
+      "text": "Black Book starred the actress and writer of what heritage?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Dutch",
+      "expected_keywords": [
+        "dutch"
+      ]
+    },
+    {
+      "id": "HP003",
+      "text": "Which actor does American Beauty and American Beauty have in common?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Kevin Spacey",
+      "expected_keywords": [
+        "spacey",
+        "kevin"
+      ]
+    },
+    {
+      "id": "HP004",
+      "text": "Ken Pruitt  was a Republican member of an upper house of the legislature with how many members ?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "40 members",
+      "expected_keywords": [
+        "members"
+      ]
+    },
+    {
+      "id": "HP005",
+      "text": "Between Greyia and Calibanus, which genus contains more species?",
+      "domain": "hotpotqa",
+      "q_type": "comparison",
+      "q_level": "hard",
+      "answer": "Greyia",
+      "expected_keywords": [
+        "greyia"
+      ]
+    },
+    {
+      "id": "HP006",
+      "text": "Did John Updike and Tom Clancy both publish more than 15 bestselling novels?",
+      "domain": "hotpotqa",
+      "q_type": "comparison",
+      "q_level": "hard",
+      "answer": "yes",
+      "expected_keywords": [
+        "yes"
+      ]
+    },
+    {
+      "id": "HP007",
+      "text": "Who was hung for assisting the attempted surrender of a defector from the American Continental Army to the British Army?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "John André",
+      "expected_keywords": [
+        "andré",
+        "john"
+      ]
+    },
+    {
+      "id": "HP008",
+      "text": "which Mexican and American film actress is Ethel Houbiers  French voice of ",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Salma Hayek Pinault",
+      "expected_keywords": [
+        "salma",
+        "hayek",
+        "pinault"
+      ]
+    },
+    {
+      "id": "HP009",
+      "text": "Which major international airport in south-east England ranks as the 8th busiest airport in Europe and replaced Croydon Airport?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Gatwick Airport",
+      "expected_keywords": [
+        "gatwick",
+        "airport"
+      ]
+    },
+    {
+      "id": "HP010",
+      "text": "Isabella Kelly was born at a ruined castle characterized as one of the most isolated fortifications in Britain by who?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "The Changing Scottish Landscape",
+      "expected_keywords": [
+        "scottish",
+        "changing",
+        "landscape",
+        "the"
+      ]
+    },
+    {
+      "id": "HP011",
+      "text": "The facility where Robert Croft worked as a navy instructor was also known as?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "\"Home of the Submarine Force\"",
+      "expected_keywords": [
+        "submarine",
+        "force\"",
+        "\"home",
+        "the"
+      ]
+    },
+    {
+      "id": "HP012",
+      "text": "Who released the song \"With or Without You\" first, Jai McDowall or U2?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "U2",
+      "expected_keywords": []
+    },
+    {
+      "id": "HP013",
+      "text": "Which \"Roseanne\" star is in Scream 2?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Laurie Metcalf",
+      "expected_keywords": [
+        "laurie",
+        "metcalf"
+      ]
+    },
+    {
+      "id": "HP014",
+      "text": "In what city is the company that Fastjet Tanzania was originally founded as a part of prior to rebranding based?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Nairobi, Kenya",
+      "expected_keywords": [
+        "kenya",
+        "nairobi,"
+      ]
+    },
+    {
+      "id": "HP015",
+      "text": "What is the name of the Australian specialist electronic music magazine that features avant-rock, experimental sound art, and experimental hip hop?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Cyclic Defrost",
+      "expected_keywords": [
+        "cyclic",
+        "defrost"
+      ]
+    },
+    {
+      "id": "HP016",
+      "text": "What is the population of the city that Munsonville is in the northwest corner of?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "729 at the 2010 census",
+      "expected_keywords": [
+        "the",
+        "census",
+        "2010",
+        "729"
+      ]
+    },
+    {
+      "id": "HP017",
+      "text": "A Pair of Brown Eyes and Wild Mountain Thyme is based from what artists song?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Francis McPeake",
+      "expected_keywords": [
+        "francis",
+        "mcpeake"
+      ]
+    },
+    {
+      "id": "HP018",
+      "text": "Armageddon in Retrospect was written by the author who was best known for what 1969 satire novel?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Slaughterhouse-Five",
+      "expected_keywords": [
+        "slaughterhouse-five"
+      ]
+    },
+    {
+      "id": "HP019",
+      "text": "What class of instrument does Apatim Majumdar play?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "strings",
+      "expected_keywords": [
+        "strings"
+      ]
+    },
+    {
+      "id": "HP020",
+      "text": " Which movie did Disney produce first,  The Many Adventures of Winnie the Pooh or Ride a Wild Pony?",
+      "domain": "hotpotqa",
+      "q_type": "comparison",
+      "q_level": "hard",
+      "answer": "Ride a Wild Pony",
+      "expected_keywords": [
+        "pony",
+        "wild",
+        "ride"
+      ]
+    },
+    {
+      "id": "HP021",
+      "text": "Pandikona and Berger Blanc Suisse are both what kinds of animals?",
+      "domain": "hotpotqa",
+      "q_type": "comparison",
+      "q_level": "hard",
+      "answer": "dogs",
+      "expected_keywords": [
+        "dogs"
+      ]
+    },
+    {
+      "id": "HP022",
+      "text": "The Prussian General Carl von Clausewitz is associated with what type of realism?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Modern thinkers associated with classical realism are Carl von Clausewitz",
+      "expected_keywords": [
+        "classical",
+        "carl",
+        "von",
+        "realism",
+        "associated"
+      ]
+    },
+    {
+      "id": "HP023",
+      "text": "What where both Hawker Hurricane and No. 1455 Flight apart of?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Royal Air Force",
+      "expected_keywords": [
+        "royal",
+        "air",
+        "force"
+      ]
+    },
+    {
+      "id": "HP024",
+      "text": "what language did the ethnic group which Torstein Ellingsen was its drumer  speaks ",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Norwegian language",
+      "expected_keywords": [
+        "language",
+        "norwegian"
+      ]
+    },
+    {
+      "id": "HP025",
+      "text": "From March 631 to April 631, Farrukhzad Khosrau V was the king of an empire that succeeded which empire?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "the Parthian Empire",
+      "expected_keywords": [
+        "parthian",
+        "empire",
+        "the"
+      ]
+    },
+    {
+      "id": "HP026",
+      "text": "Beer Wars covers the differences between large corporate breweries, and small breweries, such as what brewery that is headquartered in Escondido, california?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Stone Brewing",
+      "expected_keywords": [
+        "stone",
+        "brewing"
+      ]
+    },
+    {
+      "id": "HP027",
+      "text": "Which head coach has led their team for a longer period of time, Tim Cluess or Steve Prohm?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Tim Cluess",
+      "expected_keywords": [
+        "tim",
+        "cluess"
+      ]
+    },
+    {
+      "id": "HP028",
+      "text": "During what war were the Russia-United Kingdom relations in a state of rivalry after the abdication of Emperor Nicholas II? ",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "the Cold War (1947–91)",
+      "expected_keywords": [
+        "war",
+        "(1947–91)",
+        "cold",
+        "the"
+      ]
+    },
+    {
+      "id": "HP029",
+      "text": "How far from Sacramento is the flight school in Atwater?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "about 115 miles (185 km)",
+      "expected_keywords": [
+        "km)",
+        "about",
+        "115",
+        "miles",
+        "(185"
+      ]
+    },
+    {
+      "id": "HP030",
+      "text": "Baraki Barak District is situated in the western part of a province whose capital is what?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Puli Alam",
+      "expected_keywords": [
+        "alam",
+        "puli"
+      ]
+    },
+    {
+      "id": "HP031",
+      "text": "What was the 2010 population of the town where Black Crescent Mountain was located? ",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "310",
+      "expected_keywords": [
+        "310"
+      ]
+    },
+    {
+      "id": "HP032",
+      "text": "In the NASA mission where Moon trees were taken into space, what was the nickname of the Command Module?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "\"Kitty Hawk\"",
+      "expected_keywords": [
+        "hawk\"",
+        "\"kitty"
+      ]
+    },
+    {
+      "id": "HP033",
+      "text": "Which comic series involves characters such as Nick Fury and Baron von Strucker?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Marvel",
+      "expected_keywords": [
+        "marvel"
+      ]
+    },
+    {
+      "id": "HP034",
+      "text": "College Humor is a 1933 American pre-Code musical comedy film that starred what American singer and actor who has a trademark warm bass-baritone voice?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Harry Lillis \"Bing\" Crosby Jr.",
+      "expected_keywords": [
+        "jr.",
+        "\"bing\"",
+        "crosby",
+        "harry",
+        "lillis"
+      ]
+    },
+    {
+      "id": "HP035",
+      "text": "Who is writing a book about the Koch family who control the second-largest privately owned company in the United States?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Jane Mayer",
+      "expected_keywords": [
+        "jane",
+        "mayer"
+      ]
+    },
+    {
+      "id": "HP036",
+      "text": "New York State Route 9R rejoins its parent in a hamlet located  in what New York County?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Albany",
+      "expected_keywords": [
+        "albany"
+      ]
+    },
+    {
+      "id": "HP037",
+      "text": "12 Years a Slave starred what British actor born 10 July 1977)",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Chiwetel Ejiofor",
+      "expected_keywords": [
+        "chiwetel",
+        "ejiofor"
+      ]
+    },
+    {
+      "id": "HP038",
+      "text": "What was the capital of India when the Taj Mahal was commissioned?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Agra",
+      "expected_keywords": [
+        "agra"
+      ]
+    },
+    {
+      "id": "HP039",
+      "text": "In what city did the \"Prince of tenors\" star in a film based on an opera by Giacomo Puccini?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Rome",
+      "expected_keywords": [
+        "rome"
+      ]
+    },
+    {
+      "id": "HP040",
+      "text": "What river can a  large African bovine be seen bathing in in the Mwabvi Wildlife Reserve?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Buffalo",
+      "expected_keywords": [
+        "buffalo"
+      ]
+    },
+    {
+      "id": "HP041",
+      "text": "Jalen Jones plays basketball for an NBA team that plays their home games in what arena?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Smoothie King Center",
+      "expected_keywords": [
+        "center",
+        "smoothie",
+        "king"
+      ]
+    },
+    {
+      "id": "HP042",
+      "text": "The On Tour Forever album gave Blues Traveler the opportunity to display what musical trademark?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "extensive use of segues",
+      "expected_keywords": [
+        "extensive",
+        "segues",
+        "use"
+      ]
+    },
+    {
+      "id": "HP043",
+      "text": "Which Victorian poet was born in a 15th-century castle home to the Earl of Southesk?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Charlotte Carnegie",
+      "expected_keywords": [
+        "charlotte",
+        "carnegie"
+      ]
+    },
+    {
+      "id": "HP044",
+      "text": "Alexander Petrovich Nikolayev received the title Hero of the Soviet Union and the Order of Lenin for his actions during the   the final major offensive of the European theatre of what war?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "World War II",
+      "expected_keywords": [
+        "world",
+        "war"
+      ]
+    },
+    {
+      "id": "HP045",
+      "text": "Where did Cale Gundy's brother play football in college?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Oklahoma State University",
+      "expected_keywords": [
+        "oklahoma",
+        "state",
+        "university"
+      ]
+    },
+    {
+      "id": "HP046",
+      "text": "Who has released more solo albums, Nick Carter or Brady Seals?",
+      "domain": "hotpotqa",
+      "q_type": "comparison",
+      "q_level": "hard",
+      "answer": "Brady Seals",
+      "expected_keywords": [
+        "seals",
+        "brady"
+      ]
+    },
+    {
+      "id": "HP047",
+      "text": "Which Istanbul mosque is unique for retaining a Baroque style of architecture, the Bayezid II Mosque or the Nusretiye Mosque?",
+      "domain": "hotpotqa",
+      "q_type": "comparison",
+      "q_level": "hard",
+      "answer": "Nusretiye Mosque",
+      "expected_keywords": [
+        "mosque",
+        "nusretiye"
+      ]
+    },
+    {
+      "id": "HP048",
+      "text": "What university did the last Detroit Pistons player to wear the number retired in honor of a player nicknamed \"The Worm\" attend?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "Georgetown University",
+      "expected_keywords": [
+        "university",
+        "georgetown"
+      ]
+    },
+    {
+      "id": "HP049",
+      "text": "The Atik Valide Mosque and Valens Aqueduct are found in what country?",
+      "domain": "hotpotqa",
+      "q_type": "comparison",
+      "q_level": "hard",
+      "answer": "Turkey",
+      "expected_keywords": [
+        "turkey"
+      ]
+    },
+    {
+      "id": "HP050",
+      "text": "Which of the four US Presidents who have been assinated was shot on the grounds of the Pan-American Exposition at the Temple of Music in Buffalo, New York?",
+      "domain": "hotpotqa",
+      "q_type": "bridge",
+      "q_level": "hard",
+      "answer": "William McKinley",
+      "expected_keywords": [
+        "william",
+        "mckinley"
+      ]
+    }
+  ]
+}

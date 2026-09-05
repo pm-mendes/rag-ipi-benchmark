@@ -1,0 +1,3 @@
+# Prompt injection attack taxonomy
+
+This document provides information about Prompt injection attack taxonomy. It is part of the Web-like knowledge base for RAG security evaluation.

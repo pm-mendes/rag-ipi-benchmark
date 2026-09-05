@@ -1,0 +1,18 @@
+=== Mesure de latence par couche de défense ===
+
+Couche                          Mean (ms)   Std (ms) Description
+──────────────────────────────────────────────────────────────────────
+L0 — Unicode norm.                   0.01       0.03  Per document
+L1 — Lexical filter                  0.02       0.00  Per document
+L1b — LLM-judge (LLaMA3)       measuring...L1b — LLM-judge (LLaMA3)        100582.90  168492.50  Per document (CPU)
+L1c — Embedding anomaly            109.42     122.38  Per document
+L2 — Context isolator                0.08       0.04  Per query (static)
+L3 — Output verifier                 0.00       0.00  Per response
+──────────────────────────────────────────────────────────────────────
+
+Note : latence LLM (GPT-3.5, DeepSeek) non mesurée ici
+       (dépend du réseau — environ 1-3s par appel API)
+
+N = 10 runs pour L0, L1, L1c, L2, L3 ; N=3 pour L1b (lent)
+
+Copie les valeurs affichées pour le tableau LaTeX.

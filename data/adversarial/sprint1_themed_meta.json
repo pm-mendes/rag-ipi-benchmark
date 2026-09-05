@@ -1,0 +1,20 @@
+{
+  "nq": {
+    "LLM_GENERATED": 681,
+    "BASE64_ENCODING": 464,
+    "MANY_SHOT": 691,
+    "AUTO_PARAPHRASE": 312
+  },
+  "hotpotqa": {
+    "LLM_GENERATED": 621,
+    "BASE64_ENCODING": 455,
+    "MANY_SHOT": 695,
+    "AUTO_PARAPHRASE": 321
+  },
+  "mitre": {
+    "LLM_GENERATED": 587,
+    "BASE64_ENCODING": 468,
+    "MANY_SHOT": 700,
+    "AUTO_PARAPHRASE": 311
+  }
+}

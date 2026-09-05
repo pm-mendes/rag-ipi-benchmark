@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this benchmark, code, or data, please cite the paper below."
+title: "RAG-IPI Benchmark: Evaluating Indirect Prompt Injection in RAG Systems"
+type: software
+authors:
+  - family-names: Ameur
+    given-names: Yulliwas
+  - family-names: Mendes
+    given-names: Miqeas Pedro
+  - family-names: Bouzefrane
+    given-names: Samia
+  - family-names: Khoukhi
+    given-names: Lyes
+license: MIT
+repository-code: "https://github.com/<org>/rag-ipi-benchmark"
+preferred-citation:
+  type: conference-paper
+  title: "Evaluating Indirect Prompt Injection in RAG Systems: Defense-in-Depth, Retrieval Effects, and Security-Utility Trade-offs"
+  authors:
+    - family-names: Ameur
+      given-names: Yulliwas
+    - family-names: Mendes
+      given-names: Miqeas Pedro
+    - family-names: Bouzefrane
+      given-names: Samia
+    - family-names: Khoukhi
+      given-names: Lyes
+  year: 2026
+  conference:
+    name: "IEEE/WIC/ACM International Joint Conference on Web Intelligence and Intelligent Agent Technology (WI-IAT)"

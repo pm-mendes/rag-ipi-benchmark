@@ -1,0 +1,33 @@
+=== Validation AR vs F1 / BERTScore-proxy (30 réponses) ===
+
+  Chargé : eiffel.txt (325 caractères)
+  Chargé : llm_attacks.txt (665 caractères)
+  Chargé : llm_fundamentals.txt (556 caractères)
+  Chargé : louvre.txt (313 caractères)
+  Chargé : napoleon.txt (446 caractères)
+  Chargé : paris.txt (261 caractères)
+  Chargé : rag_architecture.txt (619 caractères)
+  Chargé : rag_security.txt (673 caractères)
+Génération de 30 réponses baseline...
+  10/30 réponses générées
+  20/30 réponses générées
+  30/30 réponses générées
+
+Calcul des métriques...
+
+==========================================================
+CORRÉLATION AR vs métriques établies (n=30)
+==========================================================
+Métrique              Pearson r    p-val  Spearman ρ    p-val
+──────────────────────────────────────────────────────────
+F1 (token)                0.449   0.0127       0.469   0.0089
+BERTScore-proxy           0.639   0.0001       0.538   0.0022
+Human relevance           0.921   0.0000       0.941   0.0000
+==========================================================
+
+Interprétation :
+  AR vs F1               : r=0.449 (modéré, significatif (p<0.05))
+  AR vs BERTScore-proxy  : r=0.639 (modéré, significatif (p<0.05))
+  AR vs Human            : r=0.921 (fort, significatif (p<0.05))
+
+Résultats → results/ar_correlation_results.json

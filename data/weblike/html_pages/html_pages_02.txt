@@ -1,0 +1,3 @@
+# Eiffel Tower history and architecture
+
+This document provides information about Eiffel Tower history and architecture. It is part of the Web-like knowledge base for RAG security evaluation.

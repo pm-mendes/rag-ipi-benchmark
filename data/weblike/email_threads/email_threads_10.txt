@@ -1,0 +1,3 @@
+# Data governance for AI knowledge bases
+
+This document provides information about Data governance for AI knowledge bases. It is part of the Web-like knowledge base for RAG security evaluation.

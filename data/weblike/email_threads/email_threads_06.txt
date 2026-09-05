@@ -1,0 +1,3 @@
+# AI vendor evaluation criteria
+
+This document provides information about AI vendor evaluation criteria. It is part of the Web-like knowledge base for RAG security evaluation.

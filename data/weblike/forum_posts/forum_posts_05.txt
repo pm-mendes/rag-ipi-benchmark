@@ -1,0 +1,3 @@
+# Prompt injection prevention techniques
+
+This document provides information about Prompt injection prevention techniques. It is part of the Web-like knowledge base for RAG security evaluation.

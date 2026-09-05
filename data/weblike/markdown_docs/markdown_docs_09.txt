@@ -1,0 +1,3 @@
+# Security testing for LLM applications
+
+This document provides information about Security testing for LLM applications. It is part of the Web-like knowledge base for RAG security evaluation.

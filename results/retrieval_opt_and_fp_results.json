@@ -1,0 +1,106 @@
+{
+  "retrieval_optimized": {
+    "error": "could not parse structure",
+    "raw_keys": [
+      "config",
+      "asr_generic",
+      "asr_targeted",
+      "avg_sim_generic",
+      "avg_sim_targeted"
+    ],
+    "comparison_with_generic": {
+      "comparisons": [],
+      "mean_uplift": null,
+      "n_compared": 0
+    }
+  },
+  "false_positive_rates_heuristic": {
+    "method": "SAU-degradation upper bound (not exact FPR)",
+    "note": "FPR is estimated as the fraction of legitimate response utility lost vs no-defense baseline. True FPR requires per-query clean-run evaluation.",
+    "per_config": {
+      "No defense": {
+        "sau_baseline": null,
+        "sau_defended": null,
+        "fpr_upper_bound": null,
+        "explicit_fpr": null,
+        "interpretation": "Insufficient data for FPR estimation"
+      },
+      "Filter only": {
+        "sau_baseline": null,
+        "sau_defended": null,
+        "fpr_upper_bound": null,
+        "explicit_fpr": null,
+        "interpretation": "Insufficient data for FPR estimation"
+      },
+      "Isolate only": {
+        "sau_baseline": null,
+        "sau_defended": null,
+        "fpr_upper_bound": null,
+        "explicit_fpr": null,
+        "interpretation": "Insufficient data for FPR estimation"
+      },
+      "Verify only": {
+        "sau_baseline": null,
+        "sau_defended": null,
+        "fpr_upper_bound": null,
+        "explicit_fpr": null,
+        "interpretation": "Insufficient data for FPR estimation"
+      },
+      "All defenses": {
+        "sau_baseline": null,
+        "sau_defended": null,
+        "fpr_upper_bound": null,
+        "explicit_fpr": null,
+        "interpretation": "Insufficient data for FPR estimation"
+      }
+    }
+  },
+  "false_positive_rates_semantic": {
+    "method": "SAU-degradation upper bound (not exact FPR)",
+    "note": "FPR is estimated as the fraction of legitimate response utility lost vs no-defense baseline. True FPR requires per-query clean-run evaluation.",
+    "per_config": {
+      "No defense": {
+        "sau_baseline": null,
+        "sau_defended": null,
+        "fpr_upper_bound": null,
+        "explicit_fpr": null,
+        "interpretation": "Insufficient data for FPR estimation"
+      },
+      "All heuristic": {
+        "sau_baseline": null,
+        "sau_defended": null,
+        "fpr_upper_bound": null,
+        "explicit_fpr": null,
+        "interpretation": "Insufficient data for FPR estimation"
+      },
+      "L0 Unicode only": {
+        "sau_baseline": null,
+        "sau_defended": null,
+        "fpr_upper_bound": null,
+        "explicit_fpr": null,
+        "interpretation": "Insufficient data for FPR estimation"
+      },
+      "L1b LLM-judge": {
+        "sau_baseline": null,
+        "sau_defended": null,
+        "fpr_upper_bound": null,
+        "explicit_fpr": null,
+        "interpretation": "Insufficient data for FPR estimation"
+      },
+      "L1c Embedding": {
+        "sau_baseline": null,
+        "sau_defended": null,
+        "fpr_upper_bound": null,
+        "explicit_fpr": null,
+        "interpretation": "Insufficient data for FPR estimation"
+      },
+      "Semantic full": {
+        "sau_baseline": null,
+        "sau_defended": null,
+        "fpr_upper_bound": null,
+        "explicit_fpr": null,
+        "interpretation": "Insufficient data for FPR estimation"
+      }
+    }
+  }
+}

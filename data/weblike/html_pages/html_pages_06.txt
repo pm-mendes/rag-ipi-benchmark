@@ -1,0 +1,3 @@
+# LLM security vulnerabilities overview
+
+This document provides information about LLM security vulnerabilities overview. It is part of the Web-like knowledge base for RAG security evaluation.

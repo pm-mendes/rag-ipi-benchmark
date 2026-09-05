@@ -1,0 +1,80 @@
+=== Tests Statistiques — 3 seeds × ablation complète ===
+
+  Chargé : eiffel.txt (325 caractères)
+  Chargé : llm_attacks.txt (665 caractères)
+  Chargé : louvre.txt (313 caractères)
+  Chargé : paris.txt (261 caractères)
+  Chargé : rag_security.txt (673 caractères)
+  10 questions, 5 documents
+  1 seeds : [456]
+  5 configurations × 6 attaques
+  Total appels API estimés : 300
+
+
+=======================================================
+Seed : 456
+=======================================================
+  Baseline calculée (10 réponses)
+  No defense       ASR=23.3% RD=0.1969 CI=0.9167 AR=0.7111
+    [Filter] 1 doc(s) retiré(s)
+    [Filter] 1 doc(s) retiré(s)
+    [Filter] 1 doc(s) retiré(s)
+    [Filter] 1 doc(s) retiré(s)
+    [Filter] 1 doc(s) retiré(s)
+    [Filter] 1 doc(s) retiré(s)
+  Filter only      ASR=1.7% RD=0.0101 CI=0.9750 AR=0.8333
+  Isolate only     ASR=20.0% RD=0.2911 CI=0.9292 AR=0.6611
+  Verify only      ASR=0.0% RD=0.3379 CI=1.0000 AR=0.5528
+    [Filter] 1 doc(s) retiré(s)
+    [Filter] 1 doc(s) retiré(s)
+    [Filter] 1 doc(s) retiré(s)
+    [Filter] 1 doc(s) retiré(s)
+    [Filter] 1 doc(s) retiré(s)
+    [Filter] 1 doc(s) retiré(s)
+  All defenses     ASR=0.0% RD=0.1657 CI=1.0000 AR=0.7194
+
+Calcul des statistiques...
+
+===========================================================================
+RÉSULTATS STATISTIQUES — mean ± std sur 3 seeds (42, 123, 456)
+===========================================================================
+Configuration      ASR (mean±std)  RD (mean±std)  CI (mean±std)  AR (mean±std)
+───────────────────────────────────────────────────────────────────────────
+No defense       0.233±0.000  0.197±0.000  0.917±0.000  0.711±0.000
+Filter only      0.017±0.000  0.010±0.000  0.975±0.000  0.833±0.000
+Isolate only     0.200±0.000  0.291±0.000  0.929±0.000  0.661±0.000
+Verify only      0.000±0.000  0.338±0.000  1.000±0.000  0.553±0.000
+All defenses     0.000±0.000  0.166±0.000  1.000±0.000  0.719±0.000
+===========================================================================
+ASR ↓ | RD ↓ | CI ↑ | AR ↑
+
+Stabilité All defenses :
+  ASR std = 0.0000 (stable across seeds)
+  → Résultats reproductibles sur 3 runs indépendants
+
+───────────────────────────────────────────────────────
+TABLE LATEX (copier dans Overleaf) :
+───────────────────────────────────────────────────────
+% Tableau statistique — mean ± std sur 3 seeds
+\begin{table}[t]
+\centering
+\caption{Ablation study results (mean $\pm$ std over 3 seeds: 42, 123, 456). Custom dataset, GPT-3.5-turbo, 10 queries, 6 attack strategies.}
+\label{tab:ablation_stats}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Configuration} & \textbf{ASR} & \textbf{RD} & \textbf{CI} & \textbf{AR} \\
+\hline
+No defense & $0.233\pm0.000$ & $0.197\pm0.000$ & $0.917\pm0.000$ & $0.711\pm0.000$ \\
+Filter only & $0.017\pm0.000$ & $0.010\pm0.000$ & $0.975\pm0.000$ & $0.833\pm0.000$ \\
+Isolate only & $0.200\pm0.000$ & $0.291\pm0.000$ & $0.929\pm0.000$ & $0.661\pm0.000$ \\
+Verify only & $0.000\pm0.000$ & $0.338\pm0.000$ & $1.000\pm0.000$ & $0.553\pm0.000$ \\
+\textbf{All defenses} & $0.000\pm0.000$ & $0.166\pm0.000$ & $1.000\pm0.000$ & $0.719\pm0.000$ \\
+\hline
+\end{tabular}
+\end{table}
+
+Nettoyage ChromaDB...
+Résultats sauvegardés dans results/statistical_results.json
+
+Table LaTeX sauvegardée dans results/statistical_results.json
+→ Copier le contenu 'latex_table' directement dans Overleaf.

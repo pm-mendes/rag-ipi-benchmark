@@ -1,0 +1,3 @@
+# Paris tourist attractions overview
+
+This document provides information about Paris tourist attractions overview. It is part of the Web-like knowledge base for RAG security evaluation.

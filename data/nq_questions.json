@@ -1,0 +1,739 @@
+{
+  "questions": [
+    {
+      "id": "NQ001",
+      "text": "How might gravity effects be observed differently according to Newton?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "distances",
+        "larger",
+        "distances."
+      ],
+      "answers": [
+        "at larger distances.",
+        "at larger distances",
+        "at larger distances",
+        "at larger distances"
+      ]
+    },
+    {
+      "id": "NQ002",
+      "text": "What is the prize offered for finding a solution to P=NP?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "us$1,000,000",
+        "$1,000,000"
+      ],
+      "answers": [
+        "$1,000,000",
+        "US$1,000,000",
+        "US$1,000,000"
+      ]
+    },
+    {
+      "id": "NQ003",
+      "text": "What color were the Bronco's uniforms in Super Bowl 50?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "white",
+        "jerseys",
+        "matching"
+      ],
+      "answers": [
+        "white",
+        "matching white jerseys",
+        "white"
+      ]
+    },
+    {
+      "id": "NQ004",
+      "text": "What are the little tentacles that cydippids have called?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "tentilla"
+      ],
+      "answers": [
+        "tentilla",
+        "tentilla",
+        "tentilla"
+      ]
+    },
+    {
+      "id": "NQ005",
+      "text": "Which lunar probe was near the Apollo 12 crew's landing site?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "surveyor"
+      ],
+      "answers": [
+        "Surveyor 3",
+        "Surveyor 3",
+        "Surveyor 3",
+        "Surveyor 3",
+        "Surveyor 3"
+      ]
+    },
+    {
+      "id": "NQ006",
+      "text": "Electrolysis of what can be used to produce oxygen and hydrogen?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "water"
+      ],
+      "answers": [
+        "water",
+        "water",
+        "water",
+        "water"
+      ]
+    },
+    {
+      "id": "NQ007",
+      "text": "When was the Edict of Worms presented?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "1521",
+        "may"
+      ],
+      "answers": [
+        "25 May 1521",
+        "25 May 1521",
+        "25 May 1521"
+      ]
+    },
+    {
+      "id": "NQ008",
+      "text": "How many other important people sent letters?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "more",
+        "than"
+      ],
+      "answers": [
+        "more than 70",
+        "more than 70",
+        "more than 70"
+      ]
+    },
+    {
+      "id": "NQ009",
+      "text": "What is an alternate way to make starch?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "glucose",
+        "linked",
+        "together",
+        "can",
+        "the"
+      ],
+      "answers": [
+        "glucose monomers in the chloroplast can be linked together",
+        "glucose monomers",
+        "glucose monomers in the chloroplast"
+      ]
+    },
+    {
+      "id": "NQ010",
+      "text": "What type of image was Tesla thought to have accidentally taken a week prior to the announcement of its discovery?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "image",
+        "x-ray"
+      ],
+      "answers": [
+        "X-ray image",
+        "X-ray",
+        "X-ray image"
+      ]
+    },
+    {
+      "id": "NQ011",
+      "text": "Where did Maududi's books place Islam?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "context",
+        "modern"
+      ],
+      "answers": [
+        "in a modern context",
+        "a modern context",
+        "modern context"
+      ]
+    },
+    {
+      "id": "NQ012",
+      "text": "What is the process of constructing a building or infrastructure?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "construction"
+      ],
+      "answers": [
+        "Construction",
+        "Construction",
+        "Construction"
+      ]
+    },
+    {
+      "id": "NQ013",
+      "text": "How many will the host committee dedicate to local charities?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "all",
+        "percent",
+        "money"
+      ],
+      "answers": [
+        "25 percent",
+        "25 percent of all money",
+        "25"
+      ]
+    },
+    {
+      "id": "NQ014",
+      "text": "In what city is SAP Center located?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "san",
+        "jose.",
+        "jose"
+      ],
+      "answers": [
+        "San Jose",
+        "San Jose",
+        "San Jose."
+      ]
+    },
+    {
+      "id": "NQ015",
+      "text": "For what invention was U.S. Patent 1,655,114 granted?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "vtol",
+        "capable",
+        "taking",
+        "aircraft",
+        "vertically"
+      ],
+      "answers": [
+        "VTOL aircraft",
+        "VTOL aircraft",
+        "a biplane capable of taking off vertically"
+      ]
+    },
+    {
+      "id": "NQ016",
+      "text": "For what purpose is oxygen used by animal life?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "cellular",
+        "respiration"
+      ],
+      "answers": [
+        "cellular respiration",
+        "cellular respiration",
+        "cellular respiration",
+        "in cellular respiration",
+        "cellular respiration"
+      ]
+    },
+    {
+      "id": "NQ017",
+      "text": "By which year did the American cars mpg start to improve?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "1985"
+      ],
+      "answers": [
+        "1985",
+        "1985",
+        "1985",
+        "1985",
+        "1985"
+      ]
+    },
+    {
+      "id": "NQ018",
+      "text": "Which religion did Kublai prefer?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "variants",
+        "tibetan",
+        "buddhism,",
+        "buddhism",
+        "especially"
+      ],
+      "answers": [
+        "Buddhism, especially the Tibetan variants",
+        "Buddhism",
+        "Buddhism"
+      ]
+    },
+    {
+      "id": "NQ019",
+      "text": "Early Western texts referencing the East describe the people as being what?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "them",
+        "backward",
+        "and",
+        "irrational"
+      ],
+      "answers": [
+        "irrational and backward",
+        "them",
+        "as irrational and backward",
+        "irrational and backward",
+        "irrational and backward"
+      ]
+    },
+    {
+      "id": "NQ020",
+      "text": "Who is the NFL's vice president of brand and creative?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "jaime",
+        "weston"
+      ],
+      "answers": [
+        "Jaime Weston",
+        "Jaime Weston",
+        "Weston"
+      ]
+    },
+    {
+      "id": "NQ021",
+      "text": "What does Obersee mean?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "lake\"",
+        "(\"upper",
+        "upper",
+        "lake"
+      ],
+      "answers": [
+        "upper lake",
+        "upper lake",
+        "(\"upper lake\"",
+        "upper lake"
+      ]
+    },
+    {
+      "id": "NQ022",
+      "text": "What types of engines are steam engines?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "engines",
+        "external",
+        "combustion"
+      ],
+      "answers": [
+        "external combustion",
+        "external combustion",
+        "external combustion engines",
+        "external combustion"
+      ]
+    },
+    {
+      "id": "NQ023",
+      "text": "In what process are electrons recycled?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "photophosphorylation",
+        "cyclic"
+      ],
+      "answers": [
+        "cyclic photophosphorylation",
+        "cyclic photophosphorylation",
+        "cyclic photophosphorylation"
+      ]
+    },
+    {
+      "id": "NQ024",
+      "text": "What third type of plea uses creative words?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "contest",
+        "plea",
+        "creative"
+      ],
+      "answers": [
+        "creative plea",
+        "no contest",
+        "creative plea",
+        "creative plea",
+        "creative plea",
+        "creative plea"
+      ]
+    },
+    {
+      "id": "NQ025",
+      "text": "What objects in organisms absorb singlet oxygen to prevent harm?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "carotenoids"
+      ],
+      "answers": [
+        "Carotenoids",
+        "Carotenoids",
+        "Carotenoids",
+        "Carotenoids",
+        "Carotenoids"
+      ]
+    },
+    {
+      "id": "NQ026",
+      "text": "In a market economy, what is inequality a reflection of?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "between",
+        "highly-paid",
+        "and",
+        "gap",
+        "lower-paid"
+      ],
+      "answers": [
+        "productivity gap between highly-paid professions and lower-paid professions",
+        "productivity gap",
+        "productivity gap"
+      ]
+    },
+    {
+      "id": "NQ027",
+      "text": "What interpretation of Islam is, for many of the adherents, the \"gold standard\" of their religion?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "saudi",
+        "saudi-interpretation",
+        "the"
+      ],
+      "answers": [
+        "Saudi",
+        "the Saudi-interpretation",
+        "Saudi"
+      ]
+    },
+    {
+      "id": "NQ028",
+      "text": "Ctenophores are less complex than what other group?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "bilaterians"
+      ],
+      "answers": [
+        "bilaterians",
+        "bilaterians",
+        "bilaterians"
+      ]
+    },
+    {
+      "id": "NQ029",
+      "text": "Who was the NFL Commissioner in early 2012?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "goodell",
+        "roger"
+      ],
+      "answers": [
+        "Roger Goodell",
+        "Roger Goodell",
+        "Goodell"
+      ]
+    },
+    {
+      "id": "NQ030",
+      "text": "In contrast how were Catholic saints portrayed?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "catholic",
+        "saints",
+        "frail"
+      ],
+      "answers": [
+        "frail Catholic saints",
+        "frail",
+        "frail"
+      ]
+    },
+    {
+      "id": "NQ031",
+      "text": "Infrastructure is often called what?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "heavy/highway,",
+        "civil",
+        "engineering",
+        "heavy"
+      ],
+      "answers": [
+        "heavy/highway, heavy civil or heavy engineering",
+        "heavy/highway, heavy civil or heavy engineering",
+        "heavy/highway, heavy civil or heavy engineering"
+      ]
+    },
+    {
+      "id": "NQ032",
+      "text": "How many years does the V&A glass collection cover?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "4000",
+        "years"
+      ],
+      "answers": [
+        "4000",
+        "4000 years",
+        "4000"
+      ]
+    },
+    {
+      "id": "NQ033",
+      "text": "What does ctenophore use to capture prey?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "colloblasts"
+      ],
+      "answers": [
+        "colloblasts",
+        "colloblasts",
+        "colloblasts"
+      ]
+    },
+    {
+      "id": "NQ034",
+      "text": "What did Luther speak out about in Saxony?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "the",
+        "jews"
+      ],
+      "answers": [
+        "the Jews",
+        "Jews",
+        "Jews"
+      ]
+    },
+    {
+      "id": "NQ035",
+      "text": "What chemical element was the cause of the Apollo 1 disastrous outcome?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "pure"
+      ],
+      "answers": [
+        "pure O"
+      ]
+    },
+    {
+      "id": "NQ036",
+      "text": "Approximately how many works of art are included in the Far Eastern collections?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "more",
+        "70,000",
+        "than"
+      ],
+      "answers": [
+        "more than 70,000",
+        "more than 70,000",
+        "70,000"
+      ]
+    },
+    {
+      "id": "NQ037",
+      "text": "How many types of science fiction have been impacted by Tesla?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "several"
+      ],
+      "answers": [
+        "several",
+        "several",
+        "several"
+      ]
+    },
+    {
+      "id": "NQ038",
+      "text": "What did he do with Wardenclyffe?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "sold"
+      ],
+      "answers": [
+        "sold",
+        "sold",
+        "sold"
+      ]
+    },
+    {
+      "id": "NQ039",
+      "text": "Whose plan called for the Mongolian army to split in two after the Khwarezmian conquest?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "subutai"
+      ],
+      "answers": [
+        "Subutai",
+        "Subutai",
+        "Subutai"
+      ]
+    },
+    {
+      "id": "NQ040",
+      "text": "Where was Tesla's property sent?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "belgrade"
+      ],
+      "answers": [
+        "Belgrade",
+        "Belgrade",
+        "Belgrade"
+      ]
+    },
+    {
+      "id": "NQ041",
+      "text": "When did Sunday Night Football premiere on NBC?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "2006"
+      ],
+      "answers": [
+        "2006",
+        "2006",
+        "2006"
+      ]
+    },
+    {
+      "id": "NQ042",
+      "text": "How many paintings did John Sheeshanks give to the museum?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "233"
+      ],
+      "answers": [
+        "233",
+        "233",
+        "233"
+      ]
+    },
+    {
+      "id": "NQ043",
+      "text": "Who was made rich and prosperous prior to World War 1",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "imperial",
+        "many",
+        "powers"
+      ],
+      "answers": [
+        "many imperial powers",
+        "imperial powers",
+        "imperial powers",
+        "imperial powers"
+      ]
+    },
+    {
+      "id": "NQ044",
+      "text": "After the Oligocene period, under what period did the amazon rainforest begin to expand?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "miocene",
+        "middle"
+      ],
+      "answers": [
+        "Middle Miocene",
+        "Middle Miocene",
+        "Middle Miocene"
+      ]
+    },
+    {
+      "id": "NQ045",
+      "text": "Which retired ref disagreed with the outcome of the challenge of a incomplete pass?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "mike",
+        "carey"
+      ],
+      "answers": [
+        "Mike Carey",
+        "Mike Carey",
+        "Carey"
+      ]
+    },
+    {
+      "id": "NQ046",
+      "text": "Where are health and social problems most common?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "income",
+        "with",
+        "states",
+        "larger",
+        "the"
+      ],
+      "answers": [
+        "among states in the US with larger income inequalities",
+        "countries with bigger income inequalities",
+        "countries with bigger income inequalities"
+      ]
+    },
+    {
+      "id": "NQ047",
+      "text": "When was the plastome discovered?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "1962"
+      ],
+      "answers": [
+        "1962",
+        "1962",
+        "1962"
+      ]
+    },
+    {
+      "id": "NQ048",
+      "text": "Which study showed double the rate of anxiety?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "study",
+        "2012"
+      ],
+      "answers": [
+        "2012",
+        "2012",
+        "2012 study"
+      ]
+    },
+    {
+      "id": "NQ049",
+      "text": "What trading route joined Khwarezmia and the Mongol Empire?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "silk",
+        "road",
+        "the"
+      ],
+      "answers": [
+        "the Silk Road",
+        "Silk Road",
+        "Silk Road"
+      ]
+    },
+    {
+      "id": "NQ050",
+      "text": "Where did Tesla work in Budapest?",
+      "domain": "nq_open",
+      "expected_keywords": [
+        "telephone",
+        "exchange",
+        "company",
+        "the",
+        "budapest"
+      ],
+      "answers": [
+        "a telegraph company",
+        "the Budapest Telephone Exchange",
+        "Budapest Telephone Exchange"
+      ]
+    }
+  ]
+}

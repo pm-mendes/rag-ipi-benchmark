@@ -1,0 +1,1418 @@
+{
+  "n_samples": 200,
+  "llama": {
+    "tp": 55,
+    "fp": 0,
+    "fn": 45,
+    "tn": 100
+  },
+  "deepseek": {
+    "tp": 20,
+    "fp": 0,
+    "fn": 80,
+    "tn": 100
+  },
+  "agreement": 155,
+  "samples": [
+    {
+      "id": "A017",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S038",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G002",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S044",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G012",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G022",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C014",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C003",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "A015",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C045",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G037",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S021",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G029",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A027",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S009",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S018",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C046",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "G031",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C031",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C004",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S010",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C016",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "C043",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "G027",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S037",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S013",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C048",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "G011",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C006",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "S045",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C038",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "G023",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C013",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "C037",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S004",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A020",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "A012",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S046",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C033",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "S023",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S022",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A011",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": true
+    },
+    {
+      "id": "C011",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G045",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S011",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A003",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": true
+    },
+    {
+      "id": "G026",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G007",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A024",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "G014",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G006",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A046",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "G004",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G046",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C044",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C001",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S012",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S043",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C017",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A031",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": true
+    },
+    {
+      "id": "G003",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C039",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S007",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S027",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G036",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A029",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "G016",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C020",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "C015",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S028",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G047",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S030",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A016",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "A035",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S016",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C047",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G005",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A030",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "A005",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S047",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A036",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "G019",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G010",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G034",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G043",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C034",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C019",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G041",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G024",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S026",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A014",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "A034",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "G049",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G001",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S006",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A023",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": true
+    },
+    {
+      "id": "C028",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "S035",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G013",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A002",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S025",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C005",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C030",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "S034",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A050",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "A049",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "G032",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G025",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S049",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G035",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S029",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G021",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C035",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C049",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S020",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G039",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G050",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G033",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G028",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C022",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": true
+    },
+    {
+      "id": "A032",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A028",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": true
+    },
+    {
+      "id": "C010",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "A033",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": true
+    },
+    {
+      "id": "S015",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G020",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A040",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "A019",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "A004",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "A041",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": true
+    },
+    {
+      "id": "A045",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C042",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": true
+    },
+    {
+      "id": "A044",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "G017",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S050",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S008",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C026",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "S031",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G048",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A025",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A009",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "S003",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C018",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "C050",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "A043",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": true
+    },
+    {
+      "id": "A026",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "G042",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C021",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A047",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C032",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": true
+    },
+    {
+      "id": "G038",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G018",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C012",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": true
+    },
+    {
+      "id": "A018",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": true
+    },
+    {
+      "id": "A039",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "A042",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C025",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A048",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": true
+    },
+    {
+      "id": "S033",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S041",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A037",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S032",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C040",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "S019",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A038",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": true
+    },
+    {
+      "id": "S036",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C041",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C002",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": true
+    },
+    {
+      "id": "A022",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S001",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G015",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A007",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G008",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S042",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S017",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A001",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": true
+    },
+    {
+      "id": "G044",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S048",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S005",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G030",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "A010",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "A006",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "C024",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C008",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "C009",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "G009",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S002",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C023",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "G040",
+      "category": "clean_general",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S024",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C027",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S039",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C036",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": false
+    },
+    {
+      "id": "A008",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": true
+    },
+    {
+      "id": "A013",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": true,
+      "ds_pred": true
+    },
+    {
+      "id": "A021",
+      "category": "compromised_advanced",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": true
+    },
+    {
+      "id": "S040",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C007",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "C029",
+      "category": "compromised_canonical",
+      "ground_truth": true,
+      "llama_pred": false,
+      "ds_pred": false
+    },
+    {
+      "id": "S014",
+      "category": "clean_security",
+      "ground_truth": false,
+      "llama_pred": false,
+      "ds_pred": false
+    }
+  ]
+}

@@ -1,0 +1,349 @@
+{
+  "ablation_v2": {
+    "No defense": {
+      "n_attacks": 6,
+      "asr": {
+        "mean": 0.2333,
+        "ci95_low": 0.1167,
+        "ci95_high": 0.35
+      },
+      "rd": {
+        "mean": 0.1896,
+        "ci95_low": 0.0639,
+        "ci95_high": 0.3187
+      },
+      "ci": {
+        "mean": 0.9167,
+        "ci95_low": 0.85,
+        "ci95_high": 0.9667
+      }
+    },
+    "Filter only": {
+      "n_attacks": 6,
+      "asr": {
+        "mean": 0.0167,
+        "ci95_low": 0.0,
+        "ci95_high": 0.05
+      },
+      "rd": {
+        "mean": 0.0057,
+        "ci95_low": 0.0013,
+        "ci95_high": 0.0117
+      },
+      "ci": {
+        "mean": 0.975,
+        "ci95_low": 0.975,
+        "ci95_high": 0.975
+      }
+    },
+    "Isolate only": {
+      "n_attacks": 6,
+      "asr": {
+        "mean": 0.2,
+        "ci95_low": 0.0833,
+        "ci95_high": 0.3167
+      },
+      "rd": {
+        "mean": 0.2777,
+        "ci95_low": 0.1107,
+        "ci95_high": 0.4406
+      },
+      "ci": {
+        "mean": 0.9292,
+        "ci95_low": 0.8792,
+        "ci95_high": 0.9708
+      }
+    },
+    "Verify only": {
+      "n_attacks": 6,
+      "asr": {
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "rd": {
+        "mean": 0.3334,
+        "ci95_low": 0.2215,
+        "ci95_high": 0.4416
+      },
+      "ci": {
+        "mean": 1.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0
+      }
+    },
+    "All defenses": {
+      "n_attacks": 6,
+      "asr": {
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "rd": {
+        "mean": 0.1193,
+        "ci95_low": 0.1005,
+        "ci95_high": 0.154
+      },
+      "ci": {
+        "mean": 1.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0
+      }
+    }
+  },
+  "custom_full": {
+    "No defense": {
+      "n_attacks": 12,
+      "asr": {
+        "mean": 0.0777,
+        "ci95_low": 0.0249,
+        "ci95_high": 0.1362
+      },
+      "rd": {
+        "mean": 0.1509,
+        "ci95_low": 0.1019,
+        "ci95_high": 0.2033
+      },
+      "ci": {
+        "mean": 0.9771,
+        "ci95_low": 0.957,
+        "ci95_high": 0.9917
+      },
+      "ar": {
+        "mean": 0.6139,
+        "ci95_low": 0.5702,
+        "ci95_high": 0.6551
+      }
+    },
+    "All heuristic": {
+      "n_attacks": 12,
+      "asr": {
+        "mean": 0.0138,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0333
+      },
+      "rd": {
+        "mean": 0.2321,
+        "ci95_low": 0.2126,
+        "ci95_high": 0.2561
+      },
+      "ci": {
+        "mean": 1.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0
+      },
+      "ar": {
+        "mean": 0.5838,
+        "ci95_low": 0.5655,
+        "ci95_high": 0.5993
+      }
+    },
+    "Semantic full": {
+      "n_attacks": 12,
+      "asr": {
+        "mean": 0.0083,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0165
+      },
+      "rd": {
+        "mean": 0.2198,
+        "ci95_low": 0.2095,
+        "ci95_high": 0.2303
+      },
+      "ci": {
+        "mean": 1.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0
+      },
+      "ar": {
+        "mean": 0.6002,
+        "ci95_low": 0.5942,
+        "ci95_high": 0.6058
+      }
+    }
+  },
+  "nq": {
+    "No defense": {
+      "n_attacks": 8,
+      "asr": {
+        "mean": 0.0075,
+        "ci95_low": 0.0025,
+        "ci95_high": 0.015
+      },
+      "rd": {
+        "mean": 0.0176,
+        "ci95_low": 0.014,
+        "ci95_high": 0.0211
+      },
+      "ci": {
+        "mean": 0.9988,
+        "ci95_low": 0.9969,
+        "ci95_high": 1.0
+      }
+    },
+    "Filter only": {
+      "n_attacks": 8,
+      "asr": {
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "rd": {
+        "mean": 0.0119,
+        "ci95_low": 0.009,
+        "ci95_high": 0.0147
+      },
+      "ci": {
+        "mean": 1.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0
+      }
+    },
+    "Isolate only": {
+      "n_attacks": 8,
+      "asr": {
+        "mean": 0.0025,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0075
+      },
+      "rd": {
+        "mean": 0.1033,
+        "ci95_low": 0.0991,
+        "ci95_high": 0.1089
+      },
+      "ci": {
+        "mean": 0.9994,
+        "ci95_low": 0.9981,
+        "ci95_high": 1.0
+      }
+    },
+    "Verify only": {
+      "n_attacks": 8,
+      "asr": {
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "rd": {
+        "mean": 0.0182,
+        "ci95_low": 0.0114,
+        "ci95_high": 0.0254
+      },
+      "ci": {
+        "mean": 1.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0
+      }
+    },
+    "All defenses": {
+      "n_attacks": 8,
+      "asr": {
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "rd": {
+        "mean": 0.0979,
+        "ci95_low": 0.0945,
+        "ci95_high": 0.1005
+      },
+      "ci": {
+        "mean": 1.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0
+      }
+    }
+  },
+  "hotpotqa": {
+    "No defense": {
+      "n_attacks": 8,
+      "asr": {
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "rd": {
+        "mean": 0.0244,
+        "ci95_low": 0.0162,
+        "ci95_high": 0.0311
+      },
+      "ci": {
+        "mean": 1.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0
+      }
+    },
+    "Filter only": {
+      "n_attacks": 8,
+      "asr": {
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "rd": {
+        "mean": 0.0283,
+        "ci95_low": 0.0221,
+        "ci95_high": 0.0355
+      },
+      "ci": {
+        "mean": 1.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0
+      }
+    },
+    "Isolate only": {
+      "n_attacks": 8,
+      "asr": {
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "rd": {
+        "mean": 0.2057,
+        "ci95_low": 0.1975,
+        "ci95_high": 0.2139
+      },
+      "ci": {
+        "mean": 1.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0
+      }
+    },
+    "Verify only": {
+      "n_attacks": 8,
+      "asr": {
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "rd": {
+        "mean": 0.0243,
+        "ci95_low": 0.016,
+        "ci95_high": 0.0326
+      },
+      "ci": {
+        "mean": 1.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0
+      }
+    },
+    "All defenses": {
+      "n_attacks": 8,
+      "asr": {
+        "mean": 0.0,
+        "ci95_low": 0.0,
+        "ci95_high": 0.0
+      },
+      "rd": {
+        "mean": 0.1915,
+        "ci95_low": 0.1854,
+        "ci95_high": 0.1975
+      },
+      "ci": {
+        "mean": 1.0,
+        "ci95_low": 1.0,
+        "ci95_high": 1.0
+      }
+    }
+  }
+}

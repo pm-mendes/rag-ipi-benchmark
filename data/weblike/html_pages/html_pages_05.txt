@@ -1,0 +1,3 @@
+# RAG systems in enterprise AI applications
+
+This document provides information about RAG systems in enterprise AI applications. It is part of the Web-like knowledge base for RAG security evaluation.

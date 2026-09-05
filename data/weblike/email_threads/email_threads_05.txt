@@ -1,0 +1,3 @@
+# Knowledge base maintenance procedures
+
+This document provides information about Knowledge base maintenance procedures. It is part of the Web-like knowledge base for RAG security evaluation.

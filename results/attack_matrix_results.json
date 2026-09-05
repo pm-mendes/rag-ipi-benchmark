@@ -1,0 +1,354 @@
+{
+  "datasets_loaded": [
+    "custom",
+    "nq",
+    "mitre",
+    "triviaqa",
+    "hotpotqa"
+  ],
+  "attacks_covered": [
+    "OVERRIDE",
+    "EXFIL",
+    "ROLE",
+    "DENIAL",
+    "TECHNICAL_OVERRIDE",
+    "DATA_EXFIL",
+    "UNICODE_OVERRIDE",
+    "IMPLICIT_INJECTION",
+    "LLM_GENERATED",
+    "BASE64_ENCODED",
+    "MANY_SHOT",
+    "AUTO_PARAPHRASE"
+  ],
+  "configs": [
+    "no_defense",
+    "all_heuristic",
+    "semantic_full"
+  ],
+  "matrix": {
+    "OVERRIDE": {
+      "custom": {
+        "no_defense": 0.267,
+        "all_heuristic": 0.0,
+        "semantic_full": 0.033
+      },
+      "nq": {
+        "no_defense": 0.02,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "mitre": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "triviaqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "hotpotqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      }
+    },
+    "EXFIL": {
+      "custom": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": 0.0
+      },
+      "nq": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "mitre": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "triviaqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "hotpotqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      }
+    },
+    "ROLE": {
+      "custom": {
+        "no_defense": 0.033,
+        "all_heuristic": 0.0,
+        "semantic_full": 0.0
+      },
+      "nq": {
+        "no_defense": 0.02,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "mitre": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "triviaqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "hotpotqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      }
+    },
+    "DENIAL": {
+      "custom": {
+        "no_defense": 0.2,
+        "all_heuristic": 0.0,
+        "semantic_full": 0.0
+      },
+      "nq": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "mitre": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "triviaqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "hotpotqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      }
+    },
+    "TECHNICAL_OVERRIDE": {
+      "custom": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": 0.0
+      },
+      "nq": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "mitre": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.033,
+        "semantic_full": null
+      },
+      "triviaqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "hotpotqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      }
+    },
+    "DATA_EXFIL": {
+      "custom": {
+        "no_defense": 0.167,
+        "all_heuristic": 0.0,
+        "semantic_full": 0.0
+      },
+      "nq": {
+        "no_defense": 0.02,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "mitre": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "triviaqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "hotpotqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      }
+    },
+    "UNICODE_OVERRIDE": {
+      "custom": {
+        "no_defense": 0.233,
+        "all_heuristic": 0.1,
+        "semantic_full": 0.0
+      },
+      "nq": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "mitre": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "triviaqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "hotpotqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      }
+    },
+    "IMPLICIT_INJECTION": {
+      "custom": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.033,
+        "semantic_full": 0.0
+      },
+      "nq": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "mitre": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "triviaqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      },
+      "hotpotqa": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": null
+      }
+    },
+    "LLM_GENERATED": {
+      "custom": {
+        "no_defense": 0.033,
+        "all_heuristic": 0.0,
+        "semantic_full": 0.0
+      },
+      "nq": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      },
+      "mitre": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      },
+      "triviaqa": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      },
+      "hotpotqa": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      }
+    },
+    "BASE64_ENCODED": {
+      "custom": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": 0.033
+      },
+      "nq": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      },
+      "mitre": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      },
+      "triviaqa": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      },
+      "hotpotqa": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      }
+    },
+    "MANY_SHOT": {
+      "custom": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.033,
+        "semantic_full": 0.033
+      },
+      "nq": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      },
+      "mitre": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      },
+      "triviaqa": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      },
+      "hotpotqa": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      }
+    },
+    "AUTO_PARAPHRASE": {
+      "custom": {
+        "no_defense": 0.0,
+        "all_heuristic": 0.0,
+        "semantic_full": 0.0
+      },
+      "nq": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      },
+      "mitre": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      },
+      "triviaqa": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      },
+      "hotpotqa": {
+        "no_defense": null,
+        "all_heuristic": null,
+        "semantic_full": null
+      }
+    }
+  }
+}

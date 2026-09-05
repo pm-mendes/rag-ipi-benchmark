@@ -1,0 +1,95 @@
+{
+  "summary_100q": {
+    "no_defense": {
+      "n_queries": 600,
+      "asr": 0.31,
+      "asr_ci_lo": 0.2733,
+      "asr_ci_hi": 0.3467,
+      "asr_canonical": 0.31,
+      "asr_canon_lo": 0.2733,
+      "asr_canon_hi": 0.3467,
+      "mean_ar": 0.035,
+      "mean_ci": 0.8942
+    },
+    "all_heuristic": {
+      "n_queries": 600,
+      "asr": 0.0,
+      "asr_ci_lo": 0.0,
+      "asr_ci_hi": 0.0,
+      "asr_canonical": 0.0,
+      "asr_canon_lo": 0.0,
+      "asr_canon_hi": 0.0,
+      "mean_ar": 0.0317,
+      "mean_ci": 1.0
+    },
+    "semantic_full": {
+      "n_queries": 600,
+      "asr": 0.0,
+      "asr_ci_lo": 0.0,
+      "asr_ci_hi": 0.0,
+      "asr_canonical": 0.0,
+      "asr_canon_lo": 0.0,
+      "asr_canon_hi": 0.0,
+      "mean_ar": 0.0333,
+      "mean_ci": 1.0
+    }
+  },
+  "summary_10q": {
+    "No defense": {
+      "n_queries": 0,
+      "asr": 0,
+      "asr_ci_lo": 0.0,
+      "asr_ci_hi": 0.0,
+      "asr_canonical": 0,
+      "asr_canon_lo": 0.0,
+      "asr_canon_hi": 0.0,
+      "mean_ar": 0.0,
+      "mean_ci": 0.9167
+    },
+    "Filter only": {
+      "n_queries": 0,
+      "asr": 0,
+      "asr_ci_lo": 0.0,
+      "asr_ci_hi": 0.0,
+      "asr_canonical": 0,
+      "asr_canon_lo": 0.0,
+      "asr_canon_hi": 0.0,
+      "mean_ar": 0.0,
+      "mean_ci": 0.975
+    },
+    "Isolate only": {
+      "n_queries": 0,
+      "asr": 0,
+      "asr_ci_lo": 0.0,
+      "asr_ci_hi": 0.0,
+      "asr_canonical": 0,
+      "asr_canon_lo": 0.0,
+      "asr_canon_hi": 0.0,
+      "mean_ar": 0.0,
+      "mean_ci": 0.9292
+    },
+    "Verify only": {
+      "n_queries": 0,
+      "asr": 0,
+      "asr_ci_lo": 0.0,
+      "asr_ci_hi": 0.0,
+      "asr_canonical": 0,
+      "asr_canon_lo": 0.0,
+      "asr_canon_hi": 0.0,
+      "mean_ar": 0.0,
+      "mean_ci": 1.0
+    },
+    "All defenses": {
+      "n_queries": 0,
+      "asr": 0,
+      "asr_ci_lo": 0.0,
+      "asr_ci_hi": 0.0,
+      "asr_canonical": 0,
+      "asr_canon_lo": 0.0,
+      "asr_canon_hi": 0.0,
+      "mean_ar": 0.0,
+      "mean_ci": 1.0
+    }
+  },
+  "latex_comment": "% \u2500\u2500 100-query ablation results \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n% Add to Section VIII or Table I caption:\n%\n% Bootstrap 95\\% CI over 100 queries (Custom 30q + MITRE 30q + TriviaQA 40q),\n% 6 canonical attacks, GPT-3.5-turbo.\n%\n% no_defense          : ASR=31.0% [27.3%,34.7%]  AR=0.035  CI=0.894  n=600\n% all_heuristic       : ASR=0.0% [0.0%,0.0%]  AR=0.032  CI=1.000  n=600\n% semantic_full       : ASR=0.0% [0.0%,0.0%]  AR=0.033  CI=1.000  n=600\n%\n% Sentence for paper body:\n% Extended evaluation on 100 queries confirms controlled results:\n% No defense ASR=31.0% [27.3%,34.7%],\n% All heuristic ASR=0.0% [0.0%,0.0%].\n% Semantic full ASR=0.0% [0.0%,0.0%].\n% \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500"
+}

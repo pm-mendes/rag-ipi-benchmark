@@ -1,0 +1,11 @@
+Large language models are vulnerable to several categories of attacks.
+Direct prompt injection involves a user crafting inputs that override
+the model system instructions during a conversation.
+Indirect prompt injection occurs when malicious instructions are hidden
+inside external data sources processed by the model.
+Jailbreaking attacks attempt to bypass safety guardrails using
+carefully crafted prompts or adversarial suffixes.
+Model extraction attacks aim to reconstruct model weights or training
+data through repeated queries to the model API.
+Prompt leaking attacks try to extract the system prompt by asking the
+model to reveal or repeat its instructions.

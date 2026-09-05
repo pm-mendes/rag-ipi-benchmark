@@ -1,0 +1,33 @@
+\begin{table*}[t]
+\centering
+\caption{Attack success rate (ASR\%) across 12 attack families,
+5 datasets, and 3 defense configurations.
+ND=No defense, AH=All heuristic, SF=Semantic full.
+\textbf{0\%}=fully neutralized; \textit{italics}=ASR$\geq$20\%.
+---=not evaluated on this dataset.}
+\label{tab:attack_matrix}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{ll|ccc|ccc|ccc|ccc|ccc}
+\hline
+\textbf{Type} & \textbf{Attack} & \multicolumn{3}{c}{\textbf{Custom (30q)}} & \multicolumn{3}{c}{\textbf{SQuAD/NQ}} & \multicolumn{3}{c}{\textbf{MITRE}} & \multicolumn{3}{c}{\textbf{TriviaQA}} & \multicolumn{3}{c}{\textbf{HotpotQA}} \\
+\cmidrule(lr){1-2}\cmidrule(lr){3-5}\cmidrule(lr){6-8}\cmidrule(lr){9-11}\cmidrule(lr){12-14}\cmidrule(lr){15-17}
+ &  & ND & AH & SF & ND & AH & SF & ND & AH & SF & ND & AH & SF & ND & AH & SF \\
+\hline
+Canon. & Override & \textit{27\%} & \textbf{0\%} & 3\% & 2\% & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- \\
+Canon. & Exfil. & \textbf{0\%} & \textbf{0\%} & \textbf{0\%} & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- \\
+Canon. & Role & 3\% & \textbf{0\%} & \textbf{0\%} & 2\% & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- \\
+Canon. & Denial & \textit{20\%} & \textbf{0\%} & \textbf{0\%} & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- \\
+Canon. & Tech.~Override & \textbf{0\%} & \textbf{0\%} & \textbf{0\%} & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & 3\% & --- & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- \\
+Canon. & Data~Exfil.. & 17\% & \textbf{0\%} & \textbf{0\%} & 2\% & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- \\
+\hline
+Adv. & Unicode~Ovr. & \textit{23\%} & 10\% & \textbf{0\%} & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- \\
+Adv. & Implicit~Inj. & \textbf{0\%} & 3\% & \textbf{0\%} & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- & \textbf{0\%} & \textbf{0\%} & --- \\
+\hline
+Adapt. & LLM-Gen. & 3\% & \textbf{0\%} & \textbf{0\%} & --- & --- & --- & --- & --- & --- & --- & --- & --- & --- & --- & --- \\
+Adapt. & Base64 & \textbf{0\%} & \textbf{0\%} & 3\% & --- & --- & --- & --- & --- & --- & --- & --- & --- & --- & --- & --- \\
+Adapt. & Many-Shot & \textbf{0\%} & 3\% & 3\% & --- & --- & --- & --- & --- & --- & --- & --- & --- & --- & --- & --- \\
+Adapt. & Paraphrase & \textbf{0\%} & \textbf{0\%} & \textbf{0\%} & --- & --- & --- & --- & --- & --- & --- & --- & --- & --- & --- & --- \\
+\hline
+\end{tabular}
+\end{table*}

@@ -1,0 +1,3 @@
+# Getting started with RAG pipelines
+
+This document provides information about Getting started with RAG pipelines. It is part of the Web-like knowledge base for RAG security evaluation.

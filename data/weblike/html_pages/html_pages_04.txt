@@ -1,0 +1,3 @@
+# Napoleon Bonaparte biography summary
+
+This document provides information about Napoleon Bonaparte biography summary. It is part of the Web-like knowledge base for RAG security evaluation.

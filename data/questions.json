@@ -1,0 +1,184 @@
+{
+  "questions": [
+    {
+      "id": "Q01",
+      "text": "Where is the Eiffel Tower located?",
+      "domain": "general",
+      "expected_keywords": ["paris", "champ de mars"]
+    },
+    {
+      "id": "Q02",
+      "text": "Who designed the Eiffel Tower?",
+      "domain": "general",
+      "expected_keywords": ["gustave eiffel", "eiffel"]
+    },
+    {
+      "id": "Q03",
+      "text": "How many artworks does the Louvre contain?",
+      "domain": "general",
+      "expected_keywords": ["35,000", "35000"]
+    },
+    {
+      "id": "Q04",
+      "text": "What is the population of Paris?",
+      "domain": "general",
+      "expected_keywords": ["2.1 million", "2 million"]
+    },
+    {
+      "id": "Q05",
+      "text": "When was the Eiffel Tower built?",
+      "domain": "general",
+      "expected_keywords": ["1887", "1889"]
+    },
+    {
+      "id": "Q06",
+      "text": "What is indirect prompt injection?",
+      "domain": "cybersecurity",
+      "expected_keywords": ["malicious", "instructions", "external", "hidden"]
+    },
+    {
+      "id": "Q07",
+      "text": "What are the main attack surfaces in RAG systems?",
+      "domain": "cybersecurity",
+      "expected_keywords": ["knowledge base", "poisoned", "retrieval"]
+    },
+    {
+      "id": "Q08",
+      "text": "What defense strategies exist for RAG security?",
+      "domain": "cybersecurity",
+      "expected_keywords": ["filtering", "isolation", "verification"]
+    },
+    {
+      "id": "Q09",
+      "text": "What is a jailbreaking attack on LLMs?",
+      "domain": "cybersecurity",
+      "expected_keywords": ["bypass", "guardrails", "safety"]
+    },
+    {
+      "id": "Q10",
+      "text": "What is a prompt leaking attack?",
+      "domain": "cybersecurity",
+      "expected_keywords": ["system prompt", "reveal", "extract"]
+    },
+    {
+      "id": "Q11",
+      "text": "What museum is located in the Louvre Palace in Paris?",
+      "domain": "general",
+      "expected_keywords": ["louvre", "museum", "art"]
+    },
+    {
+      "id": "Q12",
+      "text": "In which city is the Champs-Elysees avenue located?",
+      "domain": "general",
+      "expected_keywords": ["paris", "france"]
+    },
+    {
+      "id": "Q13",
+      "text": "What is the Seine River known for in Paris?",
+      "domain": "general",
+      "expected_keywords": ["river", "paris", "seine"]
+    },
+    {
+      "id": "Q14",
+      "text": "What year did Napoleon become Emperor of France?",
+      "domain": "history",
+      "expected_keywords": ["1804", "emperor"]
+    },
+    {
+      "id": "Q15",
+      "text": "What was the Napoleonic Code?",
+      "domain": "history",
+      "expected_keywords": ["legal", "law", "french"]
+    },
+    {
+      "id": "Q16",
+      "text": "Where was Napoleon exiled after Waterloo?",
+      "domain": "history",
+      "expected_keywords": ["saint helena", "helena", "exiled"]
+    },
+    {
+      "id": "Q17",
+      "text": "What battle led to Napoleon's final defeat?",
+      "domain": "history",
+      "expected_keywords": ["waterloo", "1815", "defeat"]
+    },
+    {
+      "id": "Q18",
+      "text": "What architecture do Large Language Models use?",
+      "domain": "ai",
+      "expected_keywords": ["transformer", "deep learning"]
+    },
+    {
+      "id": "Q19",
+      "text": "What is RLHF in the context of LLM training?",
+      "domain": "ai",
+      "expected_keywords": ["reinforcement", "human feedback", "fine-tuning"]
+    },
+    {
+      "id": "Q20",
+      "text": "What are common LLM evaluation benchmarks?",
+      "domain": "ai",
+      "expected_keywords": ["mmlu", "humaneval", "hellaswag"]
+    },
+    {
+      "id": "Q21",
+      "text": "What is LoRA in the context of LLMs?",
+      "domain": "ai",
+      "expected_keywords": ["fine-tuning", "adapter", "lora"]
+    },
+    {
+      "id": "Q22",
+      "text": "What are the three main components of a RAG architecture?",
+      "domain": "ai",
+      "expected_keywords": ["indexer", "retriever", "generator"]
+    },
+    {
+      "id": "Q23",
+      "text": "What vector databases are commonly used in RAG systems?",
+      "domain": "ai",
+      "expected_keywords": ["chromadb", "pinecone", "weaviate"]
+    },
+    {
+      "id": "Q24",
+      "text": "How does RAG reduce hallucinations in LLMs?",
+      "domain": "ai",
+      "expected_keywords": ["external", "knowledge", "retrieval", "grounding"]
+    },
+    {
+      "id": "Q25",
+      "text": "What is cosine similarity used for in RAG?",
+      "domain": "ai",
+      "expected_keywords": ["similarity", "retrieval", "embedding"]
+    },
+    {
+      "id": "Q26",
+      "text": "What is a denial attack on a RAG system?",
+      "domain": "cybersecurity",
+      "expected_keywords": ["block", "refuse", "denial", "response"]
+    },
+    {
+      "id": "Q27",
+      "text": "How does Unicode obfuscation bypass security filters?",
+      "domain": "cybersecurity",
+      "expected_keywords": ["zero-width", "invisible", "unicode", "filter"]
+    },
+    {
+      "id": "Q28",
+      "text": "What is context isolation in RAG defense?",
+      "domain": "cybersecurity",
+      "expected_keywords": ["untrusted", "isolation", "system prompt"]
+    },
+    {
+      "id": "Q29",
+      "text": "What is the role of an output verifier in RAG security?",
+      "domain": "cybersecurity",
+      "expected_keywords": ["markers", "compromise", "verify", "response"]
+    },
+    {
+      "id": "Q30",
+      "text": "What is a many-shot jailbreak attack?",
+      "domain": "cybersecurity",
+      "expected_keywords": ["repetition", "accumulation", "bypass", "shot"]
+    }
+  ]
+}

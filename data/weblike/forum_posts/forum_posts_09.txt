@@ -1,0 +1,3 @@
+# Security implications of open-source LLMs
+
+This document provides information about Security implications of open-source LLMs. It is part of the Web-like knowledge base for RAG security evaluation.

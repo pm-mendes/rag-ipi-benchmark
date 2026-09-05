@@ -1,0 +1,557 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,backgrounds}
+\usepackage{hyperref}
+\usepackage{url}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{Evaluating Indirect Prompt Injection in RAG Systems:\\
+Defense-in-Depth, Retrieval Effects, and Security--Utility Trade-offs}
+
+\author{
+\IEEEauthorblockN{Yulliwas Ameur\IEEEauthorrefmark{1}\IEEEauthorrefmark{2}, Miqeas Pedro Mendes\IEEEauthorrefmark{2}, Samia Bouzefrane\IEEEauthorrefmark{2}, Lyes Khoukhi\IEEEauthorrefmark{2}}
+\IEEEauthorblockA{\IEEEauthorrefmark{1}Efrei Research Lab, Efrei, Universit\'e Paris-Panth\'eon-Assas, Villejuif, France}
+\IEEEauthorblockA{\IEEEauthorrefmark{2}Centre d'\'etudes et de recherche en informatique et communications (C\'edric),\\
+Conservatoire national des arts et m\'etiers (Cnam), Paris, France}
+\IEEEauthorblockA{Emails: yulliwas.ameur@efrei.fr, samia.bouzefrane@lecnam.net}
+}
+
+\maketitle
+
+\begin{abstract}
+IPI robustness in RAG is not a model-only property: it emerges from the interaction between retrieval exposure, prompt assembly, and defense-layer composition. We present a controlled benchmark and offline defense-in-depth evaluation framework for indirect prompt injection (IPI) in RAG pipelines, evaluating 12 attack families across five datasets, three retriever strategies, and three generator models using four metrics: ASR, robustness degradation, context integrity, and the novel Security-Oriented Answer Utility (SAU). In the controlled benchmark setting, heuristic defenses achieve 0\% ASR on evaluated canonical/generic attacks with smaller utility loss than output verification alone; retrieval-optimized and semantically adaptive attacks remain open threats. A central observed pattern is that defense composition can be non-monotonic: adding semantic layers may increase attack success by amplifying adversarial signals when upstream filters reduce legitimate context. This recurring pattern is observed across two attack families and two datasets, but requires larger-scale statistical validation. Retrieval design (depth, strategy, and KB structure) materially affects IPI exposure and should be treated as a security parameter. Code, data, and results are publicly available.
+\end{abstract}
+
+\begin{IEEEkeywords}
+RAG, prompt injection, security, benchmark, defense-in-depth, LLM-judge, semantic defense, large language models, security-oriented utility
+\end{IEEEkeywords}
+
+\section{Introduction}
+
+Retrieval-Augmented Generation (RAG) has emerged as a dominant paradigm for deploying large language models (LLMs) in knowledge-intensive applications \cite{lewis2020rag}. By grounding responses in dynamically retrieved external documents, RAG systems improve factual accuracy while allowing knowledge bases to be updated independently of model weights. However, this architecture introduces a fundamental security vulnerability: the model prompt is assembled from externally retrieved content that may be controlled by an adversary.
+
+Indirect prompt injection (IPI) exploits this by embedding malicious instructions within documents that appear legitimate to the retrieval system \cite{greshake2023ipi}. Unlike direct prompt injection, IPI operates silently at the data layer, affecting all users of a shared knowledge base. In the context of Web Intelligence, RAG systems increasingly mediate access to heterogeneous, partially trusted Web-scale knowledge sources -- making IPI not only an LLM vulnerability, but a Web trust and intelligent-agent security problem.
+
+Our central argument is that IPI robustness in RAG is not a model-only property: it emerges from the interaction between retrieval exposure (which documents enter the context), prompt assembly (how they are presented to the generator), and defense-layer composition (how individual defenses interact). This framing distinguishes our work from approaches that treat robustness as a generator-level attribute: the same model can exhibit substantially different ASR across KB settings (e.g., 23\% in a 5-document custom KB and near 0\% in a 49-document NQ KB), suggesting that retrieval competition and dataset structure materially affect IPI exposure beyond the generator alone. This threat is particularly concerning in enterprise settings where adversaries can inject payloads into emails, web pages, or user-uploaded documents, crafting domain-aligned attacks that our generic-payload benchmark conservatively underestimates.
+
+\textbf{Contributions:} This paper argues that IPI robustness in RAG is a systemic property -- not a generator attribute -- shaped jointly by retrieval exposure, prompt assembly, and defense composition. We substantiate this through four contributions:
+\begin{enumerate}
+\item A benchmark of 12 IPI attack families (6 canonical, 2 advanced, 4 adaptive) evaluated on 5 datasets and 3 generator models.
+\item Four evaluation metrics: ASR, RD, CI, and the novel SAU (Security-Oriented Answer Utility) capturing the security--utility trade-off; SAU shows preliminary validation as a lightweight proxy for controlled defense ablations ($r = 0.921$ vs.\ human relevance); it is not a replacement for reference-based utility metrics (EM/F1/BERTScore), and independent large-scale validation remains future work.
+\item Characterization of non-monotonic defense composition as a key observed pattern: adding semantic layers can increase attack success when upstream filtering reduces legitimate context dilution and downstream isolation amplifies remaining adversarial content -- consistent across two attack families and two datasets.
+\item Cross-dataset evaluation across five datasets and cross-model evaluation on the two primary datasets (3 generators); additionally, as an exploratory extension, a minimal agentic evaluation suggesting non-monotonic defense effects may arise in tool-calling settings (20 queries, 2 models).
+\end{enumerate}
+
+All artifacts are available at \url{https://gitlab.com/miqeasmendes/rag-ipi-benchmark}.
+
+\begin{table*}[t]
+\centering
+\caption{Comparison with related work. \checkmark = supported, $\times$ = not evaluated, $\sim$ = partial. NM = non-monotonic defense composition studied.}
+\label{tab:related}
+\begin{tabular}{lccccccc}
+\toprule
+Work & IPI focus & RAG specific & Def.\ ablat. & Util.\ metric & Multi-model & Retr.\ expos. & NM \\
+\midrule
+Greshake \cite{greshake2023ipi}      & \checkmark & $\sim$     & $\times$   & $\times$   & $\times$   & $\times$ & $\times$ \\
+BIPIA \cite{yi2025bipia}             & \checkmark & $\sim$     & $\sim$     & $\sim$     & \checkmark & $\times$ & $\times$ \\
+PoisonedRAG \cite{zou2025poisonedrag} & $\times$  & \checkmark & $\sim$     & $\times$   & \checkmark & $\sim$   & $\times$ \\
+SafeRAG \cite{liang2025saferag}      & $\sim$     & \checkmark & $\times$   & $\times$   & \checkmark & $\times$ & $\times$ \\
+InjecAgent \cite{zhan2024injecagent} & \checkmark & $\times$   & $\times$   & $\times$   & $\sim$     & $\times$ & $\times$ \\
+AgentDojo \cite{debenedetti2024agentdojo} & \checkmark & $\times$ & \checkmark & $\sim$   & \checkmark & $\times$ & $\sim$   \\
+Ramakrishnan \cite{ramakrishnan2025securing} & \checkmark & $\sim$ & $\sim$   & $\times$   & $\times$   & $\times$ & $\times$ \\
+\textbf{Ours} & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\section{Background and Related Work}
+
+RAG \cite{lewis2020rag} injects retrieved documents into the prompt without semantic distinction from trusted instructions, creating a structural attack surface. Greshake et al.\ \cite{greshake2023ipi} formalized IPI in general LLM integrations; Zou et al.\ \cite{zou2023universal} showed safety-aligned models remain vulnerable; PoisonedRAG \cite{zou2025poisonedrag} achieved ASR=97\% via retrieval-optimized documents but does not study defense pipelines. BIPIA \cite{yi2025bipia} benchmarks IPI across 5 scenarios without RAG-specific retrieval exposure; InjecAgent \cite{zhan2024injecagent} and AgentDojo \cite{debenedetti2024agentdojo} target tool-calling agents but not the RAG pipeline. SafeRAG \cite{liang2025saferag} and Ramakrishnan \cite{ramakrishnan2025securing} evaluate RAG security without utility metrics or non-monotonic defense composition. Zheng et al.\ \cite{zheng2023judging} introduced LLM-as-a-Judge; we extend it to security evaluation (LLaMA 3 8B, 200 stratified samples). Table~\ref{tab:related} positions our framework: it uniquely combines IPI in RAG, defense ablation, utility metric, cross-model evaluation, retrieval exposure, and non-monotonic composition study.
+
+\section{Threat Model}
+
+\subsection{System and Adversary}
+
+We consider RAG system $R$ with corpus $D$, retriever $F$, prompt assembler $P$, and generator $G$ producing $r = G(P(q, F(q)))$. Adversary $A$ can insert documents $d^{*} \in D$ but has no access to weights, system prompt, or interface (benchmark scope: canonical/generic payloads only; retrieval-optimized adversaries \cite{zou2025poisonedrag} represent a harder open threat).
+
+\subsection{Adversarial Objectives}
+
+We consider four adversarial objectives: O1 Override (replace model behavior), O2 Exfiltration (leak system prompt or data), O3 Role hijacking (bypass safety constraints), O4 Denial (block legitimate responses).
+
+\subsection{Attack Surface}
+
+At retrieval stage, $d^{*}$ must satisfy:
+\begin{equation}
+\mathrm{sim}(\phi(q), \phi(d^{*})) \geq \mathrm{sim}(\phi(q), \phi(d_k))
+\label{eq:retrieval}
+\end{equation}
+to enter top-$k$. At generation stage:
+\begin{equation}
+P(q, F(q)) = [s \,\|\, d_1 \,\|\, \cdots \,\|\, d_k \,\|\, q],
+\end{equation}
+where adversarial instructions in any $d_i$ influence generation with the same authority as system prompt $s$.
+
+\section{Attack Strategies}
+
+\subsection{Attack Construction}
+
+Each adversarial document $d^{*} = [c \,\|\, \iota]$ combines camouflage prefix $c$ (legitimate content maximizing retrieval probability) with injection payload $\iota$. For cross-dataset evaluation, each attack is instantiated with a domain-aligned prefix specific to the target dataset (e.g., a physics-domain prefix for NQ, a cybersecurity prefix for MITRE ATT\&CK). These dataset-specific variants are denoted by a prefix in result tables (e.g., NQ\_OVERRIDE, MITRE\_TECHNICAL\_OVERRIDE) but belong to the same canonical family as their base attack -- they do not constitute separate attack strategies.
+
+\subsection{Canonical Attacks (6)}
+\begin{itemize}
+\item \textbf{Override (O1):} explicit instruction replacement (IGNORE ALL PREVIOUS INSTRUCTIONS).
+\item \textbf{Exfiltration (O2):} HTML comment embedding audit directive instructing system prompt leakage.
+\item \textbf{Role hijacking (O3):} DAN persona assignment overriding safety constraints.
+\item \textbf{Denial (O4):} administrative notice blocking all responses.
+\item \textbf{Technical Override (O1):} injection framed as security patch in technical content.
+\item \textbf{Data Exfiltration (O2):} compliance audit notice in domain-specific content.
+\end{itemize}
+
+\subsection{Advanced Attacks (2)}
+
+\textbf{Unicode Override:} adversarial instructions obfuscated using zero-width Unicode characters (U+200B, U+200C, U+200D) invisible to lexical filters. The payload ``IGNORE ALL PREVIOUS INSTRUCTIONS'' is character-interleaved with zero-width spaces, rendering regex patterns non-matching while remaining interpretable by the LLM.
+
+\textbf{Implicit Injection:} adversarial behavior induced through narrative framing (a simulated security audit session) without any explicit instruction keywords, bypassing all lexical detection.
+
+\subsection{Adaptive Attacks (4)}
+
+Four attacks generated by DeepSeek-V3 to evade known filter patterns: LLM-Generated (payload embedded in domain-accurate content); Base64-Encoded (payload encoded, invisible to string filters); Many-Shot (payload repeated 5$\times$ with syntactic variation); Keyword-Free Paraphrase (LLM reformulation avoiding all compromise markers).
+
+\section{Benchmark Design}
+
+\subsection{Metrics}
+
+\textbf{ASR:} $\frac{1}{n}\sum_i \mathbb{1}[\mathrm{success}(r_i^a)]$ (canonical/generic = non-retrieval-optimized payloads; retrieval-optimized attacks discussed in Section~\ref{sec:limitations}).
+
+\textbf{RD:}
+\begin{equation}
+\mathrm{RD} = \frac{1}{n}\sum_i \left(1 - \frac{\phi(r_i^0)\cdot\phi(r_i^a)}{\lVert\phi(r_i^0)\rVert\lVert\phi(r_i^a)\rVert}\right)
+\end{equation}
+where $r_i^0$ is the unattacked response.
+
+\textbf{CI} (marker-based diagnostic for controlled comparisons):
+\begin{equation}
+\mathrm{CI} = \max(0,\, 1 - \alpha\,|\{m \in M : m \in r\}|), \quad \alpha = 0.25,
+\end{equation}
+where $M$ is the set of 13 compromise markers: \{pwned, ignore previous, dan mode, no restrictions, leaked:, [leaked, access denied, classified, system prompt, confidential, [audit:, system\_prompt=, audit log\}. $\alpha = 0.25$ was chosen empirically to saturate CI at 4+ simultaneous markers.\footnote{A single marker may indicate partial injection; 4+ markers indicate full compromise ($\alpha = 0.25$ calibrated on 20 held-out responses).}
+
+\textbf{SAU (novel):} $\frac{|\{k \in K_q : k \in r\}|}{|K_q|}$, where $K_q$ is the manually curated expected keyword set for query $q$. SAU distinguishes secure-but-useless responses (ASR=0, SAU=0) from secure-and-informative ones without requiring reference answers. It is a controlled defense-ablation proxy, not a replacement for EM, F1, or BERTScore, and should not be used outside defense ablation settings without independent validation. $K_q$ sets are publicly available \cite{ameur2026repo}; preliminary validation yields $r = 0.921$ vs.\ human relevance on our controlled sample -- larger-scale gold-standard validation with independent annotators remains future work.
+
+\subsection{Datasets}
+
+Five datasets cover a range of KB densities and domains. Custom (8 docs, 30q, 4 domains), SQuAD/NQ \cite{rajpurkar2016squad} (49 Wikipedia passages, 100q), MITRE ATT\&CK \cite{mitre2023attack} (50 cybersecurity descriptions, 30q), TriviaQA \cite{joshi2017triviaqa} (76 passages, 90q), and HotpotQA \cite{yang2018hotpotqa} (498 passages, 100q multi-hop). Primary ablation uses Custom (10q subset) and SQuAD/NQ; extended validation covers 350 unique queries across all five datasets; total: 14,580 evaluations (7,740 existing + 6,300 scale-validation + 240 agentic + 300 web-like). All three generators evaluated on primary datasets; Llama 3.1 70B accessed via NVIDIA API ($T=0$).
+
+\section{Methodology: Defense-in-Depth Pipeline}
+
+\subsection{Heuristic Layers (L1--L3)}
+
+\textbf{L1 -- Content Filter:} 14 regex patterns applied to retrieved documents before prompt assembly. Flagged documents removed: $F'(q) = \{d \in F(q) : \nexists\, p \in P_{\mathrm{filter}} \text{ s.t. } p \text{ matches } d\}$.
+
+\textbf{L2 -- Context Isolator:} System prompt replaced with isolation-aware $s'$ labeling retrieved documents as untrusted data with non-overridable security rules.
+
+\textbf{L3 -- Output Verifier:} Generated responses scanned against 13 compromise markers; compromised responses replaced by safe fallback $r_{\mathrm{safe}}$.
+
+\subsection{Semantic Layers (L0, L1b, L1c)}
+
+\textbf{L0 -- Unicode Normalization:} Applies Unicode NFKC canonicalization and removes zero-width characters (U+200B, U+200C, U+200D) before L1 processing, rendering obfuscated payloads detectable by lexical filters.
+
+\textbf{L1b -- LLM-judge Document Analysis:} LLaMA 3 8B (local, via Ollama) evaluates each retrieved document for adversarial intent using a semantics-aware prompt distinguishing documents that describe attacks from documents that give instructions to an AI. Includes a pre-detection step for HTML comment injections.
+
+\textbf{L1c -- Embedding Anomaly Detection:} Computes anomaly score $\delta = \mathrm{sim}_{\mathrm{imp}} - \mathrm{sim}_{\mathrm{desc}}$ comparing document embeddings to imperative and descriptive reference sets. Documents with $\delta > 0.05$ (calibrated on held-out validation) are flagged as semantically anomalous.
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+    font=\small,
+    box/.style={draw, rounded corners, minimum width=2.4cm, minimum height=0.9cm, align=center, fill=white},
+    heur/.style={box, fill=orange!15, draw=orange!70!black},
+    sem/.style={box, fill=violet!12, draw=violet!70!black},
+    attacker/.style={box, fill=red!12, draw=red!70!black},
+    arrow/.style={-Stealth, thick},
+    attackarrow/.style={-Stealth, thick, red!70!black, dashed}
+]
+\node[box] (query) {User Query};
+\node[box, right=1.6cm of query] (retriever) {Retriever\\BM25/Dense};
+\node[box, above=0.9cm of retriever] (kb) {Knowledge Base};
+\node[sem, right=1.6cm of retriever] (l0) {L0 -- Unicode\\Normalization};
+\node[heur, right=1.2cm of l0] (l1) {L1 -- Content\\Filter};
+\node[sem, above=0.6cm of l1] (l1b) {L1b -- LLM-judge\\LLaMA 3 8B};
+\node[sem, below=0.6cm of l1] (l1c) {L1c -- Embedding\\Anomaly $\delta > 0.05$};
+\node[heur, right=1.2cm of l1] (l2) {L2 -- Context\\Isolator};
+\node[box, right=1.6cm of l2] (assembler) {Prompt Assembler};
+\node[box, right=1.6cm of assembler] (gen) {LLM Generator};
+\node[heur, below=0.9cm of gen] (l3) {L3 -- Output\\Verifier};
+\node[box, right=1.6cm of gen] (answer) {Final Answer};
+\node[attacker, above=1.4cm of query] (attacker) {Attacker (IPI)};
+
+\draw[arrow] (query) -- (retriever);
+\draw[arrow] (retriever) -- (l0);
+\draw[arrow] (l0) -- (l1);
+\draw[arrow] (l1) -- (l2);
+\draw[arrow] (l2) -- (assembler);
+\draw[arrow] (assembler) -- (gen);
+\draw[arrow] (gen) -- (l3);
+\draw[arrow] (l3) -- (answer);
+\draw[arrow] (kb) -- (retriever);
+\draw[attackarrow] (attacker) -- node[above,sloped,red!70!black,font=\scriptsize]{poison} (kb);
+\draw[attackarrow] (attacker) -- node[above,sloped,red!70!black,font=\scriptsize]{inject} (query);
+\end{tikzpicture}
+\caption{RAG pipeline with defense-in-depth. Heuristic (orange): L1 filter, L2 isolator, L3 verifier. Semantic (violet): L0 Unicode, L1b LLM-judge, L1c embedding anomaly.}
+\label{fig:pipeline}
+\end{figure*}
+
+\begin{table}[t]
+\centering
+\caption{Experimental matrix (key evaluations). 14,580 total evaluations across 5 datasets + agentic + web-like.}
+\label{tab:matrix}
+\small
+\begin{tabular}{lccccl}
+\toprule
+Experiment & Queries & Attacks & Models & Purpose \\
+\midrule
+Heuristic ablation & 10 & 6 canon. & 1 & Layer comparison \\
+Extended & 350q & 350$\times$6 canon. & 1 & Scale validation \\
+Semantic ablation & 10 & 6+2 & 1 & Advanced attacks \\
+Cross-model/dataset & 160 & 8--12 & 3 & Generalization \\
+Retrieval (top-$k$, retriever, AHR) & 10 & 6 & 1 & Retrieval security \\
+Agentic eval & 20 & 2 agent & 2 & TMR+PCR \\
+Web-like eval & 20 & 5 Web & 1 & Format-specific IPI \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{LLM-Judge Cascade for ASR Measurement}
+
+For ASR measurement, we implement a cascade detection strategy: lexical heuristics are applied first; for advanced attack types where heuristics return CLEAN, LLaMA 3 8B is invoked as a semantic judge. This reduces judge calls to 6--10 per configuration while maximizing detection coverage.
+
+\subsection{Ablation Protocol}
+
+Nine configurations evaluated: $\emptyset$, $\{L1\}$, $\{L2\}$, $\{L3\}$, $\{L1, L2, L3\}$ (heuristic ablation); $\{L0\}$, $\{L1b\}$, $\{L1c\}$, $\{L0, L1, L1b, L1c, L2, L3\}$ (semantic ablation).
+
+\section{Experimental Setup}
+
+\textbf{RAG Pipeline:} LangChain \cite{chase2022langchain}, ChromaDB, all-MiniLM-L6-v2 \cite{reimers2019sbert} (384-dim), chunk 500/overlap 50, top-$k=3$.
+
+\textbf{Generators:} GPT-3.5-turbo ($T=0$), DeepSeek-V3 \cite{deepseek2024v3} ($T=0$), Llama 3.1 70B \cite{grattafiori2024llama3} ($T=0$, NVIDIA API).
+
+\textbf{Judge \& Reproducibility:} LLaMA 3 8B via Ollama (local, CPU, 11 GB). Full ablation under seeds \{42, 123, 456\}; mean $\pm$ std reported. Near-zero variance confirms full determinism ($T=0$, fixed corpus, deterministic retriever).
+
+\section{Results}
+
+Table~\ref{tab:matrix} summarizes all experiments reported in this paper, making the evaluation scope immediately auditable. Results are organized around four research questions: RQ1 -- How effective are individual and layered defenses against canonical IPI attacks, and what is the security--utility trade-off? RQ2 -- Do semantic obfuscation and adaptive attacks bypass heuristic defenses, and how do semantic defense layers perform? RQ3 -- How does retrieval design (depth, strategy, KB density) affect IPI exposure? RQ4 -- Is defense-in-depth monotonic, and what structural mechanisms explain non-monotonic behavior? The full 12-attack $\times$ 5-dataset $\times$ 3-defense ASR matrix is available at the project repository \cite{ameur2026repo}; individual RQ results are detailed below.
+
+\subsection{RQ1: Defense Effectiveness Against Canonical IPI}
+
+\begin{table}[t]
+\centering
+\caption{Heuristic ablation (mean, bootstrap 95\% CI over attack families, 3 seeds, Custom 10-query subset, GPT-3.5-turbo). Ablation uses 6 canonical attacks for controlled comparison; all 12 families evaluated on extended dataset (Table~\ref{tab:kbdensity}). ASR$\downarrow$, RD$\downarrow$, CI$\uparrow$, SAU$\uparrow$.}
+\label{tab:heuristic}
+\small
+\begin{tabular}{lcccc}
+\toprule
+Config. & ASR [95\% CI] & RD & CI & SAU \\
+\midrule
+No def. & .233 [.117,.350] & .191$\pm$.004 & .917$\pm$.000 & .711$\pm$.000 \\
+Filter  & .017 [.000,.050] & .005$\pm$.004 & .975$\pm$.000 & .833$\pm$.000 \\
+Isolate & .200 [.083,.317] & .267$\pm$.019 & .921$\pm$.006 & .664$\pm$.006 \\
+Verify  & .000 [.000,.000] & .332$\pm$.004 & 1.000$\pm$.000 & .553$\pm$.000 \\
+All     & .000 [.000,.000] & .138$\pm$.022 & 1.000$\pm$.000 & .724$\pm$.004 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:heuristic} reports mean $\pm$ std over three seeds on the 10-query subset (6 canonical attacks, GPT-3.5-turbo). Near-zero variance confirms full determinism ($T=0$, fixed corpus). Bootstrap 95\% CIs: No defense ASR=23.3\% [11.7\%, 35.0\%], All heuristic 0.0\% [0.0\%, 0.0\%]. L1 achieves ASR=1.7\% while fully preserving SAU=0.833. L3 achieves ASR=0\% but SAU drops to 0.553 ($-28\%$). All heuristic: ASR=0\%, CI=1.000, SAU=0.725 ($+17.2\%$ vs.\ Verify only). On the extended 30-query dataset (8 docs, 12 attacks), canonical No-defense ASR=11.1\% (vs.\ 23.3\% on 10q), consistent with KB density effect.
+
+\textbf{RQ1 answer.} \textit{Finding:} Layered heuristic defenses achieve 0\% ASR on all evaluated canonical attacks under the controlled Custom-10 setting while preserving SAU=0.724. \textit{Evidence:} L1 alone reduces ASR from 23.3\% to 1.7\% at zero SAU cost; L3 achieves 0\% ASR but $-28\%$ SAU; All heuristic recovers SAU ($+17.2\%$ vs.\ L3) via cascade. All three generator models reach ASR=0\% under All defenses on Custom-10 and NQ.
+
+\textbf{Extended 350-Query Validation (RQ1).} An extended 350-query evaluation across all five datasets (6 canonical attacks, 6,300 evaluations) confirms: All heuristic and Semantic full achieve 0\% ASR (bootstrap CI [0\%, 0\%], $n=2{,}100$); No defense reaches 31.0\% [27.3\%, 34.7\%] on the original Custom subset and remains low across all five datasets. Full per-config results are available at the project repository \cite{ameur2026repo}.
+
+\textbf{RQ1 extended finding:} 0\% ASR is replicated within our benchmark from 10 to 350 queries across five datasets (bootstrap interval [0\%,0\%], $n=2{,}100$); broader generalization is not claimed.
+
+\begin{table}[t]
+\centering
+\caption{KB density effect across all datasets (GPT-3.5-turbo, canonical attacks, 8-attack subset: 6 canonical + 2 advanced; see Table~\ref{tab:adaptive} for adaptive attacks). ND=no defense, AD=all defenses. $\ddagger$Canonical attacks achieve 0\% ASR on MITRE under all defenses; the 0.4\% average arises solely from a Technical Override variant evading the lexical filter (Section~\ref{sec:rq3}). ASR$\downarrow$, SAU$\uparrow$.}
+\label{tab:kbdensity}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+Dataset & KB & Queries & ASR ND & ASR AD & SAU ND \\
+\midrule
+Custom (5 docs) & 5 & 10 & 23.3\% & 0.0\% & 0.711 \\
+Custom (8 docs) & 8 & 30 & 11.1\% & 0.0\% & 0.557 \\
+SQuAD/NQ & 49 & 50 & 0.7\% & 0.0\% & -- \\
+MITRE ATT\&CK & 50 & 30 & 0.0\% & 0.4\%$\ddagger$ & 0.792 \\
+TriviaQA & 76 & 50 & 0.0\% & 0.0\% & 0.616 \\
+HotpotQA & 498 & 50 & 0.0\% & 0.0\% & -- \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:kbdensity2} (cross-dataset/model results) reports results across datasets and models with all eight attack strategies. Cross-model evaluation was conducted on the two primary datasets (Custom 10q and NQ 50q); the remaining datasets (MITRE, TriviaQA, HotpotQA) achieve ASR=0\% without defense due to KB density and domain cohesion effects (Section~\ref{sec:rq3}), making multi-model ASR comparison on those datasets uninformative for attack success; extending cross-model RD and SAU analysis to all datasets under zero-ASR conditions remains future work. All three generator models achieve ASR=0\% on evaluated canonical attacks under All defenses on both primary datasets, suggesting that the defense-in-depth pipeline generalizes across commercial aligned (GPT-3.5-turbo, RLHF), open-source pretraining (DeepSeek-V3), and instruction fine-tuned (Llama 3.1 70B \cite{grattafiori2024llama3}) architectures.
+
+A notable finding emerges from the NQ No-defense results: ASR drops from 16.7--23.3\% on the custom dataset to 0.0--0.7\% on NQ. Our experiments are consistent with a KB density effect: with 49 competing Wikipedia passages, adversarial documents face a higher retrieval threshold (Eq.~\ref{eq:retrieval}) than in a 5-document custom KB. We emphasize that document count, domain specificity, and embedding distribution co-vary across datasets; these factors cannot be disentangled in these experiments, and a controlled causal study isolating each factor remains future work.
+
+Extended evaluation on two additional datasets suggests two distinct mechanisms underlying this effect. On HotpotQA \cite{yang2018hotpotqa} (498 Wikipedia passages, multi-hop reasoning, 50 queries), ASR=0\% without any defense, consistent with density-driven retrieval competition. On MITRE ATT\&CK Enterprise \cite{mitre2023attack} (50 cybersecurity technique descriptions, 30 queries), ASR also reaches 0\% without defense despite the smaller KB size -- consistent with a semantic domain cohesion mechanism: adversarial documents with generic camouflage prefixes may be outcompeted by specialized ATT\&CK content in the retrieval ranking. Table~\ref{tab:kbdensity} summarizes the KB density effect with full per-dataset results across all evaluated configurations.
+
+MITRE\_TECHNICAL\_OVERRIDE achieves ASR=3\% under All heuristic (``security patch'' camouflage bypasses lexical filtering), suggesting that domain-specialized KBs may require semantic defenses. On MITRE, L2 uniquely improves SAU 0.792$\rightarrow$0.848.
+
+\begin{table}[t]
+\centering
+\caption{Cross-dataset/model results (3 generators, 8 attacks: 6 canonical + 2 advanced; adaptive attacks evaluated separately in Table~\ref{tab:adaptive}). ND=no def., AD=all def. ASR$\downarrow$. $\dagger$Advanced attacks: ASR=0\% on NQ (KB density effect).}
+\label{tab:kbdensity2}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+ & \multicolumn{2}{c}{GPT-3.5} & \multicolumn{2}{c}{DeepSeek-V3} & \multicolumn{2}{c}{Llama 3.1} \\
+Dataset & ND & AD & ND & AD & ND & AD \\
+\midrule
+Custom (10q) & 23.3\% & 0\% & 3.3\% & 0\% & 16.7\% & 0\% \\
+NQ (50q)$\dagger$ & 0.7\% & 0\% & 0.0\% & 0\% & 0.7\% & 0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{RQ2: Semantic and Adaptive Attacks vs.\ Heuristic Defenses}
+
+\begin{table}[t]
+\centering
+\caption{Semantic defense ablation (GPT-3.5-turbo, 10 queries). Canon.=6, Adv.=2 attacks. ASR$\downarrow$. $\dagger$Unicode\_Override regresses from 10\% (L1b) to 20\% (Semantic full) due to L2 interference; Implicit\_Injection holds at 10\% in both configs.}
+\label{tab:semantic}
+\small
+\begin{tabular}{lcc}
+\toprule
+Configuration & Canon. & Adv. \\
+\midrule
+No defense & 23.3\% & 40.0\% \\
+All heuristic & 0.0\% & 35.0\% \\
+L0 Unicode & 1.7\% & 20.0\% \\
+L1b LLM-judge & 1.7\% & 10.0\% \\
+L1c Embedding & 1.7\% & 30.0\% \\
+Semantic full$\dagger$ & 0.0\% & 20.0\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:semantic} compares heuristic vs.\ semantic defense configurations. The Unicode normalizer (L0) reduces UNICODE\_OVERRIDE ASR from 50\% to 10\%. The LLM-judge layer (L1b) achieves 10\% advanced ASR as the strongest single semantic layer. The embedding anomaly detector (L1c) flags implicit injection (score=0.222, $\delta > 0.05$) but misses Unicode obfuscation. The full semantic pipeline reduces advanced ASR from 35\% (All heuristic) to 20\% (note: LLM-judge recall=55\%, so advanced/adaptive ASR are conservative lower bounds).
+
+Notably, Semantic full (20\%) underperforms L1b alone (10\%) on advanced attacks: combining semantic layers introduces interference effects, where L2 (Context Isolator) modifies generation behavior in ways that can amplify subtle injections escaping L1b, rather than suppress them. Specifically, in 3 of 10 queries where UNICODE\_OVERRIDE evaded L1b, the isolation prompt's instruction to treat all context as untrusted paradoxically increased the model's attention to adversarial framing. We note that defense composition is non-trivial and that layer ordering may require task-specific tuning.
+
+We evaluate four adaptive attacks (DeepSeek-V3): LLM-generated, Base64-encoded, many-shot (5$\times$), and keyword-free paraphrase. Table~\ref{tab:adaptive} reports results (Custom 30q, 8 docs). On the custom dataset (8 docs), adaptive attacks achieve ASR=0\% across all three configurations including No defense, explained by the AHR analysis (Table~\ref{tab:ahr}): generic adversarial camouflage fails to enter top-$k$ against a dense KB. Semantic defenses confirm ASR=0\% with marginal SAU cost. On MITRE ATT\&CK (50 docs, domain-aligned prefixes), adaptive attacks achieve 3--7\% ASR. Crucially, the Semantic full pipeline (avg 6\%) performs worse than All heuristic (avg 3.3\%) on MITRE -- confirming the non-monotonic defense composition pattern observed for canonical advanced attacks: L2 context isolation amplifies subtle injection influence when L0+L1c filters reduce the retrieved context, leaving fewer legitimate documents to dilute the adversarial signal. This non-monotonicity is consistent across two distinct attack families, suggesting it reflects a recurring composition effect of the pipeline rather than an isolated anomaly.
+
+\begin{table}[t]
+\centering
+\caption{Adaptive attack evaluation (GPT-3.5-turbo, DeepSeek-V3 generated). Custom: 30q, 8 docs. MITRE: 30q, 50 docs, domain-aligned prefixes. $\star$Increase on MITRE from No def.\ to All heur.\ reflects L1 removing legitimate competing documents. $\dagger$Semantic full worse than All heuristic on MITRE: non-monotonic defense composition (L2 interference). Sem.=Semantic full (L0+L1+L1b+L1c+L2+L3). ASR$\downarrow$.}
+\label{tab:adaptive}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+ & \multicolumn{3}{c}{Custom 30q} & \multicolumn{3}{c}{MITRE 30q} \\
+Attack & ND & AH & Sem. & ND & AH & Sem. \\
+\midrule
+LLM-generated  & 0\% & 0\% & 0\% & 3\% & 3\% & 7\%$\dagger$ \\
+Base64-encoded & 0\% & 0\% & 0\% & 3\% & 3\% & 3\% \\
+Many-shot      & 0\% & 0\% & 0\% & 3\% & 3\% & 7\%$\dagger$ \\
+Paraphrase     & 0\% & 0\% & 0\% & 7\% & 3\% & 7\%$\dagger$ \\
+\midrule
+Avg & 0\% & 0\% & 0\% & 4\% & 3\%$\star$ & 6\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Judge validation on 200 stratified samples (100 COMPROMISED + 100 CLEAN) yields $\kappa = 0.550$ (LLaMA 3 8B, moderate) vs.\ $\kappa = 0.200$ (DeepSeek-V3, slight). Both achieve precision=100\% (FPR=0\%); LLaMA Acc=77.5\%, Rec=55\%, F1=0.710. Per-category: 100\% agreement on clean categories (general and security documentation); 50--60\% on compromised categories (canonical and advanced) -- false negatives concentrate on the most semantically subtle injections. LLaMA recall=55\% implies $\approx$45\% FN: advanced/adaptive ASR are conservative lower bounds.
+
+\textbf{RQ2 answer.} \textit{Finding:} Heuristic defenses insufficient against advanced attacks; L1b alone 10\% ASR, but Semantic full regresses to 20\%. \textit{Evidence:} Unicode obfuscation 50\% ASR without L0; implicit injection evades lexical layers; adaptive MITRE 3--7\%; LLM-judge $\kappa = 0.550$, recall=55\% (advanced ASR = conservative lower bound, $\approx$45\% FN).
+
+\section{Discussion}
+
+\subsection{RQ3: How Does Retrieval Design Affect IPI Exposure?}
+\label{sec:rq3}
+
+\textbf{Impact of Retrieval Depth.} Table~\ref{tab:topk} reports ASR as a function of top-$k \in \{1, 3, 5, 10\}$ without defense (custom dataset, 10 queries, 6 canonical attacks, GPT-3.5-turbo). ASR grows monotonically from 3.3\% at $k=1$ to 45.0\% at $k=10$, empirically confirming Eq.~\ref{eq:retrieval}: as $k$ increases, the probability that $d^{*}$ enters the retrieved context grows. This finding implies that restricting retrieval depth is a low-cost defense substantially reducing IPI exposure, though SAU declines from 0.783 ($k=1$) to 0.675 ($k=10$) due to increased context noise. The configuration $k=3$ used throughout this work represents an empirically justified tradeoff.
+
+\begin{table}[t]
+\centering
+\caption{Impact of top-$k$ on IPI vulnerability (Custom dataset, 10 queries, 6 canonical attacks, No defense). ASR grows monotonically with $k$. ASR$\downarrow$, SAU$\uparrow$.}
+\label{tab:topk}
+\small
+\begin{tabular}{lcccc}
+\toprule
+top-$k$ & ASR & RD & CI & SAU \\
+\midrule
+1  & 3.3\%  & 0.019 & 0.975 & 0.783 \\
+3  & 21.7\% & 0.207 & 0.921 & 0.714 \\
+5  & 30.0\% & 0.215 & 0.896 & 0.725 \\
+10 & 45.0\% & 0.291 & 0.875 & 0.675 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Retriever Strategy and IPI Resistance.} Table~\ref{tab:retriever} compares three retrieval strategies on IPI vulnerability (custom dataset, 10 queries, 6 canonical attacks, No defense). BM25 achieves ASR=6.7\%, three times lower than Dense (21.7\%), confirming that adversarial documents optimize for semantic similarity (dense embedding proximity) rather than lexical overlap. Their camouflage prefixes contain topically relevant vocabulary but not the exact query terms matched by BM25, resulting in substantially lower retrieval probability. Hybrid RRF achieves intermediate ASR (13.3\%) while maximizing SAU (0.817, $+9.5$pp vs.\ Dense), confirming retriever strategy as a security parameter.
+
+\begin{table}[t]
+\centering
+\caption{Retriever strategy ablation (Custom dataset, 10 queries, 6 canonical attacks, No defense). BM25 reduces ASR by 15pp vs.\ Dense due to adversarial camouflage optimizing semantic rather than lexical similarity. ASR$\downarrow$, SAU$\uparrow$.}
+\label{tab:retriever}
+\small
+\begin{tabular}{lcccc}
+\toprule
+Retriever & ASR & RD & CI & SAU \\
+\midrule
+Dense (MiniLM) & 21.7\% & 0.193 & 0.908 & 0.722 \\
+BM25 & 6.7\% & 0.148 & 0.958 & 0.733 \\
+Hybrid (RRF) & 13.3\% & 0.102 & 0.933 & 0.817 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Adversarial Hit Rate and Conditional Attack Success.} To decouple retrieval exposure from generation susceptibility, we decompose ASR into AHR@$k$ (adversarial document retrieved in top-$k$, measuring exposure) and CASR (ASR given retrieval, measuring generation compliance). CASR acts as an oracle forced-retrieval proxy: it measures how often the generator complies when an adversarial document is guaranteed in context, without requiring a new experiment. Table~\ref{tab:ahr} reports both metrics.
+
+Three findings: (1) retrieval is the primary bottleneck (AHR 1.7\% at $k=1$); (2) CASR near-perfect for explicit families (Override, Role, Data Exfil: 75--100\%), making L1 the critical defense; (3) TECHNICAL\_OVERRIDE: AHR=100\% at $k=10$ but CASR=0\% (generation resistance). CASR decreases with $k$ (63\% at $k=3$ vs.\ 52\% at $k=10$).
+
+\textbf{KB Density and Domain Cohesion.} Retrieval competition (5$\rightarrow$498 docs) and domain cohesion (MITRE: ASR=0\% despite 50 docs) provide natural resistance; adaptive adversaries overcome these (3--7\% on MITRE). ASR=0\% on NQ/HotpotQA reflects generic payload limitations.
+
+\textbf{RQ3 answer.} \textit{Finding:} Retrieval design should be treated as a security parameter alongside defense layers. \textit{Evidence:} ASR grows monotonically from 3.3\% ($k=1$) to 45.0\% ($k=10$); BM25 reduces ASR by 15pp vs.\ dense (McNemar: $\chi^2 = 7.11$, $p = 0.008^{**}$, $n=60$); KB structure and domain cohesion are consistent with driving ASR from 23.3\% to 0\% without architectural defense (causal isolation remains future work). CASR shows explicit injection families succeed 75--100\% once retrieved, making L1 the most cost-effective defense.
+
+\begin{table}[t]
+\centering
+\caption{AHR@k and CASR by canonical attack family (GPT-3.5-turbo, Custom 10q, No defense). AHR@$k$ = adversarial doc.\ retrieved in top-$k$. CASR = ASR $\mid$ adversarial doc.\ retrieved. $\dagger$Technical\_Override: AHR=100\% at $k=10$ but CASR=0\% -- resistance is entirely at generation, not retrieval.}
+\label{tab:ahr}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+ & \multicolumn{2}{c}{$k=3$} & \multicolumn{2}{c}{$k=5$} & \multicolumn{2}{c}{$k=10$} \\
+Attack & AHR & CASR & AHR & CASR & AHR & CASR \\
+\midrule
+Override        & 40\% & 100\% & 50\% & 100\% & 80\%  & 100\% \\
+Exfiltration     & 50\% & 0\%   & 50\% & 0\%   & 100\% & 10\%  \\
+Role hijacking   & 20\% & 100\% & 50\% & 80\%  & 80\%  & 75\%  \\
+Denial           & 50\% & 80\%  & 50\% & 80\%  & 100\% & 50\%  \\
+Tech.\ Override$\dagger$ & 10\% & 0\% & 20\% & 0\% & 100\% & 0\% \\
+Data Exfil       & 30\% & 100\% & 30\% & 100\% & 80\%  & 75\%  \\
+\midrule
+Avg & 33\% & 63\% & 42\% & 60\% & 90\% & 52\% \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{RQ4: Is Defense-in-Depth Monotonic?}
+
+\textbf{Defense Effectiveness and Layer Interactions.} No single layer achieves simultaneously optimal performance across all four metrics. L1 preserves SAU but is evadable by advanced attacks. L3 eliminates ASR but degrades SAU ($-28\%$). L2 alone is insufficient (ASR=22.2\%). The All heuristic configuration resolves this via cascade effect: L1 upstream removal reduces L3 intervention frequency, lowering RD from 0.332 (L3 alone) to 0.138 while maintaining ASR=0\% and CI=1.000 under the evaluated canonical attacks.
+
+\textbf{Defense-in-Depth is Non-Monotonic.} A central observed pattern is that adding layers does not guarantee improved robustness (larger-scale validation required): Semantic full 20\% $>$ L1b alone 10\%; MITRE adaptive 6\% $>$ All heuristic 3.3\%. Mechanism: upstream filters (L0, L1c) reduce legitimate dilution, L2 amplifies residual adversarial content. This pattern holds across two attack families and two datasets.
+
+\textbf{RQ4 answer.} \textit{Finding:} Defense-in-depth is not monotonic in this pipeline; our minimal agentic evaluation suggests that similar non-monotonic effects may arise in tool-calling settings. \textit{Evidence:} Semantic full (20\% advanced ASR) underperforms L1b alone (10\%); MITRE adaptive attacks worsen from 3.3\% to 6\% under Semantic full (avg; see Table~\ref{tab:adaptive}). In the agentic setting, TMR$_{\mathrm{vol}}$ increases from 0\% (no defense) to 20\% (Semantic full) for GPT-3.5 AGENT\_TOOL\_MISUSE (Table~\ref{tab:agentic}). McNemar (text generation): $\chi^2 = 0.500$, $p = 0.480$ (ns, $n=20$) -- statistically underpowered at this scale; the structural mechanism (upstream filters reduce legitimate dilution; downstream L2 amplifies adversarial influence) is consistent across two attack families and two datasets.
+
+\subsection{Alignment, Fairness, and Deployment}
+
+[The following extends experimental results with design implications; empirical multilingual fairness evaluation remains future work.]
+
+\textbf{Alignment.} Without defenses, natural IPI resistance follows DeepSeek (3.3\%) $<$ Llama (16.7\%) $<$ GPT-3.5 (23.3\%); yet under All heuristic all combinations achieve ASR=0\%/CI=1.000 on evaluated canonical attacks, suggesting architectural defenses generalize across the evaluated alignment strategies. Resistance variation suggests pretraining data composition may play a role, but a controlled study remains future work.
+
+\begin{table}[t]
+\centering
+\caption{Defense layer latency (mean $\pm$ std, $n=10$ runs, CPU-only platform). LLM API latency (GPT-3.5, DeepSeek) is network-dependent ($\approx$1--3s) and not included.}
+\label{tab:latency}
+\small
+\begin{tabular}{llc}
+\toprule
+Layer & Operation & Latency (ms) \\
+\midrule
+L0  & Unicode normalization (per doc.) & 0.01 $\pm$ 0.03 \\
+L1  & Lexical filter / 14 regex (per doc.) & 0.02 $\pm$ 0.00 \\
+L1c & Embedding anomaly score (per doc.) & 109 $\pm$ 122 \\
+L2  & Context isolator / prompt swap & 0.08 $\pm$ 0.04 \\
+L3  & Output verifier / 13 markers & 0.00 $\pm$ 0.00 \\
+L1b & LLM-judge / LLaMA 3 8B CPU & $\approx$100,000 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Fairness and Accountability.} Defense utility cost is itself a fairness dimension: L3 (Output Verifier) replaces up to 22\% of legitimate responses with a fallback, disproportionately affecting edge-case or domain-specific queries. L1 and All heuristic incur $\leq 1.3\%$ SAU cost, making L1 the most equitable single layer. In high-stakes domains -- healthcare, legal assistance, finance, education, and public administration -- silently suppressing a document introduces transparency risks independent of security benefit. Our lexical filters are English-centric: multilingual and code-switching attacks may bypass English-only regex patterns, while benign non-English content risks higher false-positive rates from L1b. This asymmetry -- English KBs better protected, non-English content disproportionately filtered -- is a fairness concern for global Web deployments. Trustworthy RAG systems should combine provenance tracking, multilingual defense evaluation, human review workflows for borderline cases, and user-facing explanations of filtering decisions. Deployments should produce defense audit logs (document ID, triggered layer, matched pattern, timestamp, automatic vs.\ human-reviewed) to support post-incident analysis and compliance. Accountability for agent actions on injected instructions -- which actor (document author, KB curator, deployer, agent designer) bears responsibility -- remains an open governance problem for Web-scale agentic systems.
+
+\textbf{Deployment Guidance (from Table~\ref{tab:latency}).} L0+L1 (mandatory, $<$0.1\,ms): eliminates canonical attacks at indexing and query time. L3 (conditional): ASR=0\% but SAU $-28\%$; reserve for high-security contexts. L1c ($\approx$109\,ms): offline indexing screen for implicit injections. L1b ($\approx$100\,s CPU): offline-only; GPU or fine-tuned classifier needed for real-time. L2 (validate first): non-monotonic risk -- empirically validate before enabling.
+
+\textbf{Qualitative Notes (MITRE).} Override blocked by L1 when retrieved; Tech.\ Override: AHR=100\% at $k=10$ but CASR=0\% (generation-level resistance); Auto-Paraphrase: 6.7\% vs.\ 3.3\% ASR illustrating L2 amplification.
+
+\subsection{Defense Latency Analysis}
+
+Table~\ref{tab:latency} (10 runs, CPU-only): L0--L3: $<$1\,ms; L1c: $\approx$109\,ms (offline); L1b (LLaMA 3 8B): $\approx$100\,s -- offline only; GPU needed for real-time.
+
+\subsection{Minimal Agentic IPI Evaluation}
+
+We implement a minimal RAG agent with four tools: \texttt{search\_kb} and \texttt{summarize\_doc} (authorized), and \texttt{send\_email} and \texttt{export\_context} (restricted, simulated).
+
+\begin{table}[t]
+\centering
+\caption{Agentic IPI evaluation (20 queries, 2 models). TMR$_{\mathrm{vol}}$ = voluntary tool misuse rate; PCR = mean parameter compliance (forced call); Sens.\% = fraction of forced calls with sensitive params.}
+\label{tab:agentic}
+\small
+\begin{tabular}{llcccccc}
+\toprule
+ & & \multicolumn{3}{c}{GPT-3.5-turbo} & \multicolumn{3}{c}{DeepSeek-V3} \\
+Config & Attack & TMR$_v$ & PCR & S\% & TMR$_v$ & PCR & S\% \\
+\midrule
+No def. & Tool mis. & 0\%  & .52 & 85 & 25\% & .28 & 50 \\
+No def. & Ctx exfil & 0\%  & .62 & 80 & 0\%  & .62 & 95 \\
+All H.  & Tool mis. & 15\% & .52 & 85 & 30\% & .30 & 55 \\
+All H.  & Ctx exfil & 0\%  & .57 & 80 & 0\%  & .56 & 90 \\
+Sem.\ F. & Tool mis. & 20\% & .52 & 90 & 30\% & .30 & 55 \\
+Sem.\ F. & Ctx exfil & 0\%  & .52 & 75 & 0\%  & .52 & 85 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two adversarial documents instruct the agent to call unauthorized tools (AGENT\_TOOL\_MISUSE, AGENT\_CONTEXT\_EXFIL). We evaluate two metrics across 3 defense configurations, 20 queries, and 2 generator models (GPT-3.5-turbo and DeepSeek-V3): TMR$_{\mathrm{vol}}$, the fraction of queries where the agent freely calls an unauthorized tool (\texttt{tool\_choice=auto}); and PCR, when the tool call is forced, the fraction of calls where parameters contain context-derived sensitive content. Table~\ref{tab:agentic} reports results.
+
+The results show four patterns: (1) Alignment governs voluntary tool misuse: GPT-3.5 achieves TMR$_{\mathrm{vol}}$=0\% without defense; DeepSeek 25\%, confirming function-calling safety is model-level. (2) Defenses paradoxically increase misuse (non-monotonic): GPT-3.5 0\%$\rightarrow$15\%$\rightarrow$20\%, DeepSeek 25\%$\rightarrow$30\%$\rightarrow$30\% -- extending Section~\ref{sec:rq3} to the agentic domain. (3) Forced PCR is alignment-independent: GPT-3.5 0.52--0.62 (75--90\%), DeepSeek 0.28--0.62 (50--95\%) -- a residual exfiltration risk alignment cannot address. (4) AGENT\_CONTEXT\_EXFIL achieves TMR$_{\mathrm{vol}}$=0\% for both models; TOOL\_MISUSE reaches 0--30\%, as explicit function-name framing is more effective than parameter-oriented framing.
+
+\textit{Limitation:} Single-turn agentic setting; multi-step injection, retrieval-optimized agent attacks, and Llama 3.1 70B evaluation remain future work. Statistical notes: McNemar on Dense vs.\ BM25: $\chi^2 = 7.11$, $p = 0.008^{**}$ ($n=60$) supports retrieval strategy as a security parameter. McNemar on L1b vs.\ Semantic full: $\chi^2 = 0.500$, $p = 0.480$ (ns, $n=20$) -- the non-monotonic pattern is observed but not statistically significant at this scale; larger-scale validation is required. CI sensitivity ($\alpha \in \{0.10\text{--}0.50\}$): defended CI=1.000 throughout; no-defense CI=0.97--0.83, confirming $\alpha=0.25$ (CI=0.917) is well-calibrated.
+
+\subsection{Web-like IPI Evaluation}
+
+To evaluate IPI on realistic Web content formats, we construct a 40-document Web-like KB (HTML pages, Markdown docs, forum posts, email threads) with 5 format-specific attack families (HTML comment injection, Markdown hidden instruction, email footer injection, forum spoiler injection, meta tag injection), 20 queries, and 3 defense configurations (300 evaluations, GPT-3.5-turbo).
+
+\textbf{Result:} ASR=0\% across all 5 attack families and 3 configurations. CI=1.000, consistent with alignment-governed resistance. However, RD remains measurably non-zero: No defense RD=0.12--0.28, All heuristic RD=0.44--0.54, Semantic full RD=0.49--0.59 -- mirroring the non-monotonic RD pattern of Section~\ref{sec:rq3}. This suggests that, for GPT-3.5-turbo, evaluated Web-like formats perturb responses without producing full compromise; RD is a more sensitive indicator than binary ASR for partial injection effects. Format-specific attacks on less-aligned models remain future work.
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+\textbf{Scale:} 10-query ablation not sufficient for generalization; 350-query extension replicates the 0\% ASR result within the evaluated canonical/generic benchmark setting; cross-model replication remains future work.
+
+\textbf{Exfiltration:} Measures behavioral compliance, not verified secret leakage. Canary (token SYS-CANARY-7F3A) yielded CLR=0\% -- explained by AHR$\approx$0\% (KB density) and GPT-3.5 RLHF resistance; CLR under forced retrieval remains open.
+
+\textbf{Detection:} LLM-judge $\kappa = 0.550$, F1=0.710, recall=55\% $\Rightarrow$ advanced/adaptive ASR are conservative lower bounds ($\approx$45\% FN).
+
+\textbf{Retrieval-optimized attacks:} The 0\% ASR claim applies to canonical/generic attacks under the benchmark setting. Targeted adversarial documents ($\mathrm{sim} = 0.689$ vs.\ 0.162 generic, $\Delta = +0.528$) double ASR to 20\% under All heuristic, confirming that retrieval-optimized and semantically adaptive attacks remain open threats \cite{zou2025poisonedrag}.
+
+\textbf{Other:} Known-pattern payloads only; instruction splitting not evaluated. \textbf{SAU:} preliminary $r = 0.921$ (human) and $r = 0.639$ (BERTScore); annotation protocol in repository; independent validation required before use outside controlled ablation.
+
+\section{Conclusion}
+
+IPI robustness in RAG is a systemic property shaped by retrieval exposure, prompt assembly, and defense composition. Across 12 attack families, 5 datasets, and 3 generators, we show that retrieval design materially affects IPI exposure: ASR grows from 3.3\% to 45.0\% as top-$k$ increases from 1 to 10, and BM25 reduces ASR by 15pp compared with dense retrieval. In the evaluated canonical/generic benchmark setting, layered heuristic defenses achieve 0\% ASR (CI=1.000, SAU=0.724), but retrieval-optimized and semantically adaptive attacks remain open threats.
+
+We also observe a recurring non-monotonic defense-composition pattern: Semantic full reaches 20\% advanced ASR compared with 10\% for L1b alone, and MITRE adaptive attacks increase from 3.3\% under All heuristic to 6\% under Semantic full. These results suggest that defense layers should be validated as composed systems rather than assumed to combine monotonically, although larger-scale statistical validation is required. Limitations include LLM-judge false negatives, English-centric filters, offline latency for L1b, limited agentic evaluation, and incomplete validation of SAU outside controlled ablations. Future work will extend the benchmark to multilingual attacks, retrieval-optimized adversaries, web-like formats on less-aligned models, and multi-step agentic RAG.
+
+\section*{Acknowledgment}
+
+Generative AI tools, including Microsoft 365 Copilot, were used to assist with language polishing and wording refinement in parts of the manuscript. The authors reviewed, edited, and take full responsibility for all scientific content, experiments, results, and conclusions.
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

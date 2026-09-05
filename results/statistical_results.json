@@ -1,0 +1,157 @@
+{
+  "seeds": [
+    456
+  ],
+  "per_seed_results": [
+    [
+      {
+        "config": "No defense",
+        "avg_asr": 0.2333,
+        "avg_rd": 0.1969,
+        "avg_ci": 0.9167,
+        "avg_ar": 0.7111
+      },
+      {
+        "config": "Filter only",
+        "avg_asr": 0.0167,
+        "avg_rd": 0.0101,
+        "avg_ci": 0.975,
+        "avg_ar": 0.8333
+      },
+      {
+        "config": "Isolate only",
+        "avg_asr": 0.2,
+        "avg_rd": 0.2911,
+        "avg_ci": 0.9292,
+        "avg_ar": 0.6611
+      },
+      {
+        "config": "Verify only",
+        "avg_asr": 0.0,
+        "avg_rd": 0.3379,
+        "avg_ci": 1.0,
+        "avg_ar": 0.5528
+      },
+      {
+        "config": "All defenses",
+        "avg_asr": 0.0,
+        "avg_rd": 0.1657,
+        "avg_ci": 1.0,
+        "avg_ar": 0.7194
+      }
+    ]
+  ],
+  "statistics": {
+    "No defense": {
+      "asr_mean": 0.2333,
+      "asr_std": 0.0,
+      "rd_mean": 0.1969,
+      "rd_std": 0.0,
+      "ci_mean": 0.9167,
+      "ci_std": 0.0,
+      "ar_mean": 0.7111,
+      "ar_std": 0.0,
+      "asr_values": [
+        0.2333
+      ],
+      "rd_values": [
+        0.1969
+      ],
+      "ci_values": [
+        0.9167
+      ],
+      "ar_values": [
+        0.7111
+      ]
+    },
+    "Filter only": {
+      "asr_mean": 0.0167,
+      "asr_std": 0.0,
+      "rd_mean": 0.0101,
+      "rd_std": 0.0,
+      "ci_mean": 0.975,
+      "ci_std": 0.0,
+      "ar_mean": 0.8333,
+      "ar_std": 0.0,
+      "asr_values": [
+        0.0167
+      ],
+      "rd_values": [
+        0.0101
+      ],
+      "ci_values": [
+        0.975
+      ],
+      "ar_values": [
+        0.8333
+      ]
+    },
+    "Isolate only": {
+      "asr_mean": 0.2,
+      "asr_std": 0.0,
+      "rd_mean": 0.2911,
+      "rd_std": 0.0,
+      "ci_mean": 0.9292,
+      "ci_std": 0.0,
+      "ar_mean": 0.6611,
+      "ar_std": 0.0,
+      "asr_values": [
+        0.2
+      ],
+      "rd_values": [
+        0.2911
+      ],
+      "ci_values": [
+        0.9292
+      ],
+      "ar_values": [
+        0.6611
+      ]
+    },
+    "Verify only": {
+      "asr_mean": 0.0,
+      "asr_std": 0.0,
+      "rd_mean": 0.3379,
+      "rd_std": 0.0,
+      "ci_mean": 1.0,
+      "ci_std": 0.0,
+      "ar_mean": 0.5528,
+      "ar_std": 0.0,
+      "asr_values": [
+        0.0
+      ],
+      "rd_values": [
+        0.3379
+      ],
+      "ci_values": [
+        1.0
+      ],
+      "ar_values": [
+        0.5528
+      ]
+    },
+    "All defenses": {
+      "asr_mean": 0.0,
+      "asr_std": 0.0,
+      "rd_mean": 0.1657,
+      "rd_std": 0.0,
+      "ci_mean": 1.0,
+      "ci_std": 0.0,
+      "ar_mean": 0.7194,
+      "ar_std": 0.0,
+      "asr_values": [
+        0.0
+      ],
+      "rd_values": [
+        0.1657
+      ],
+      "ci_values": [
+        1.0
+      ],
+      "ar_values": [
+        0.7194
+      ]
+    }
+  },
+  "latex_table": "% Tableau statistique — mean ± std sur 3 seeds\n\\begin{table}[t]\n\\centering\n\\caption{Ablation study results (mean $\\pm$ std over 3 seeds: 42, 123, 456). Custom dataset, GPT-3.5-turbo, 10 queries, 6 attack strategies.}\n\\label{tab:ablation_stats}\n\\begin{tabular}{lcccc}\n\\hline\n\\textbf{Configuration} & \\textbf{ASR} & \\textbf{RD} & \\textbf{CI} & \\textbf{AR} \\\\\n\\hline\nNo defense & $0.233\\pm0.000$ & $0.197\\pm0.000$ & $0.917\\pm0.000$ & $0.711\\pm0.000$ \\\\\nFilter only & $0.017\\pm0.000$ & $0.010\\pm0.000$ & $0.975\\pm0.000$ & $0.833\\pm0.000$ \\\\\nIsolate only & $0.200\\pm0.000$ & $0.291\\pm0.000$ & $0.929\\pm0.000$ & $0.661\\pm0.000$ \\\\\nVerify only & $0.000\\pm0.000$ & $0.338\\pm0.000$ & $1.000\\pm0.000$ & $0.553\\pm0.000$ \\\\\n\\textbf{All defenses} & $0.000\\pm0.000$ & $0.166\\pm0.000$ & $1.000\\pm0.000$ & $0.719\\pm0.000$ \\\\\n\\hline\n\\end{tabular}\n\\end{table}"
+}

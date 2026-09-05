@@ -1,0 +1,41 @@
+# Environment variables (real secrets) — never commit
+.env
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# ChromaDB vector stores — generated at run time by every experiment script
+chroma_*/
+chroma_db*/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Large third-party raw dataset downloads (see docs/REPRODUCIBILITY.md) —
+# fetched locally, not committed. The processed per-document .txt files and
+# question JSON derived from them ARE committed under data/{nq,mitre,...}/.
+data/triviaqa/triviaqa-rc.tar.gz
+data/triviaqa/wikipedia-dev.json
+data/hotpotqa/hotpot_dev.json
+data/mitre/enterprise_attack.json
+data/nq/squad_dev.json
+*.tar.gz
+*.gz
+*.zip
+
+# Run logs (kept selectively under logs/ via git add -f where informative)
+results/*.log

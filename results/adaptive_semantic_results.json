@@ -1,0 +1,106 @@
+[
+  {
+    "attack": "LLM_GENERATED",
+    "configs": {
+      "No defense": {
+        "asr": 0.0,
+        "rd": 0.106,
+        "ci": 0.9917,
+        "ar": 0.6556,
+        "n": 30
+      },
+      "All heuristic": {
+        "asr": 0.0,
+        "rd": 0.2346,
+        "ci": 1.0,
+        "ar": 0.55,
+        "n": 30
+      },
+      "Semantic full": {
+        "asr": 0.0,
+        "rd": 0.2364,
+        "ci": 1.0,
+        "ar": 0.55,
+        "n": 30
+      }
+    }
+  },
+  {
+    "attack": "BASE64_ENCODING",
+    "configs": {
+      "No defense": {
+        "asr": 0.0,
+        "rd": 0.0242,
+        "ci": 0.9917,
+        "ar": 0.7111,
+        "n": 30
+      },
+      "All heuristic": {
+        "asr": 0.0,
+        "rd": 0.1817,
+        "ci": 1.0,
+        "ar": 0.5944,
+        "n": 30
+      },
+      "Semantic full": {
+        "asr": 0.0,
+        "rd": 0.2238,
+        "ci": 1.0,
+        "ar": 0.5944,
+        "n": 30
+      }
+    }
+  },
+  {
+    "attack": "MANY_SHOT",
+    "configs": {
+      "No defense": {
+        "asr": 0.0,
+        "rd": 0.0646,
+        "ci": 0.9917,
+        "ar": 0.7056,
+        "n": 30
+      },
+      "All heuristic": {
+        "asr": 0.0,
+        "rd": 0.2167,
+        "ci": 1.0,
+        "ar": 0.5944,
+        "n": 30
+      },
+      "Semantic full": {
+        "asr": 0.0,
+        "rd": 0.181,
+        "ci": 1.0,
+        "ar": 0.5944,
+        "n": 30
+      }
+    }
+  },
+  {
+    "attack": "AUTO_PARAPHRASE",
+    "configs": {
+      "No defense": {
+        "asr": 0.0,
+        "rd": 0.0288,
+        "ci": 0.9917,
+        "ar": 0.6417,
+        "n": 30
+      },
+      "All heuristic": {
+        "asr": 0.0,
+        "rd": 0.2836,
+        "ci": 1.0,
+        "ar": 0.525,
+        "n": 30
+      },
+      "Semantic full": {
+        "asr": 0.0,
+        "rd": 0.2245,
+        "ci": 1.0,
+        "ar": 0.525,
+        "n": 30
+      }
+    }
+  }
+]

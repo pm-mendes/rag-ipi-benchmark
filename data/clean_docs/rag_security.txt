@@ -1,0 +1,10 @@
+Retrieval-Augmented Generation (RAG) systems combine large language
+models with external knowledge retrieval to improve factual accuracy.
+RAG systems face unique security challenges because retrieved content
+is directly incorporated into the model prompt without sanitization.
+The main attack surface in RAG is the knowledge base itself, which
+can be poisoned by injecting adversarial documents.
+Indirect prompt injection exploits this surface by embedding malicious
+instructions inside documents that appear legitimate to the retriever.
+Defense strategies for RAG include input filtering, context isolation,
+and output verification applied as independent security layers.

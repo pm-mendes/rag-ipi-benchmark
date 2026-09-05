@@ -1,0 +1,57 @@
+
+==============================================================
+Fichier : ablation_v2_results.json
+==============================================================
+Config                  ASR mean             95% CI  n_attacks
+--------------------------------------------------------------
+  No defense              23.3%  [11.7%, 35.0%]       6 attacks
+  Filter only              1.7%  [0.0%, 5.0%]       6 attacks
+  Isolate only            20.0%  [8.3%, 31.7%]       6 attacks
+  Verify only              0.0%  [0.0%, 0.0%]       6 attacks
+  All defenses             0.0%  [0.0%, 0.0%]       6 attacks
+
+==============================================================
+Fichier : ablation_custom_full_results.json
+==============================================================
+Config                  ASR mean             95% CI  n_attacks
+--------------------------------------------------------------
+  No defense               7.8%  [2.5%, 13.6%]      12 attacks
+    AR=0.614 [0.570, 0.655]
+  All heuristic            1.4%  [0.0%, 3.3%]      12 attacks
+    AR=0.584 [0.566, 0.599]
+  Semantic full            0.8%  [0.0%, 1.7%]      12 attacks
+    AR=0.600 [0.594, 0.606]
+
+==============================================================
+Fichier : ablation_nq_results.json
+==============================================================
+Config                  ASR mean             95% CI  n_attacks
+--------------------------------------------------------------
+  No defense               0.8%  [0.2%, 1.5%]       8 attacks
+  Filter only              0.0%  [0.0%, 0.0%]       8 attacks
+  Isolate only             0.2%  [0.0%, 0.8%]       8 attacks
+  Verify only              0.0%  [0.0%, 0.0%]       8 attacks
+  All defenses             0.0%  [0.0%, 0.0%]       8 attacks
+
+==============================================================
+Fichier : ablation_hotpotqa_results.json
+==============================================================
+Config                  ASR mean             95% CI  n_attacks
+--------------------------------------------------------------
+  No defense               0.0%  [0.0%, 0.0%]       8 attacks
+  Filter only              0.0%  [0.0%, 0.0%]       8 attacks
+  Isolate only             0.0%  [0.0%, 0.0%]       8 attacks
+  Verify only              0.0%  [0.0%, 0.0%]       8 attacks
+  All defenses             0.0%  [0.0%, 0.0%]       8 attacks
+
+
+==============================================================
+LATEX — Table I enrichie avec bootstrap CI
+==============================================================
+  No defense           ASR=23.3%$_{[11.7%,35.0%]}$ RD=0.190 CI=0.917
+  Filter only          ASR=1.7%$_{[0.0%,5.0%]}$ RD=0.006 CI=0.975
+  Isolate only         ASR=20.0%$_{[8.3%,31.7%]}$ RD=0.278 CI=0.929
+  Verify only          ASR=0.0%$_{[0.0%,0.0%]}$ RD=0.333 CI=1.000
+  All defenses         ASR=0.0%$_{[0.0%,0.0%]}$ RD=0.119 CI=1.000
+
+Résultats → results/bootstrap_ci_results.json

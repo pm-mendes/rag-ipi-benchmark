@@ -1,0 +1,3 @@
+# Retrieval strategies comparison BM25 vs dense
+
+This document provides information about Retrieval strategies comparison BM25 vs dense. It is part of the Web-like knowledge base for RAG security evaluation.

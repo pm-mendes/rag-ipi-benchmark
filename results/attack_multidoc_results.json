@@ -1,0 +1,50 @@
+[
+  {
+    "variant": "V1_explicit",
+    "config": "No defense",
+    "asr": 0.0,
+    "avg_rd": 0.0233,
+    "avg_ci": 0.975,
+    "avg_ar": 0.8667
+  },
+  {
+    "variant": "V1_explicit",
+    "config": "All heuristic",
+    "asr": 0.0,
+    "avg_rd": 0.1091,
+    "avg_ci": 0.975,
+    "avg_ar": 0.8167
+  },
+  {
+    "variant": "V2_hidden",
+    "config": "No defense",
+    "asr": 0.0,
+    "avg_rd": 0.1171,
+    "avg_ci": 0.975,
+    "avg_ar": 0.8667
+  },
+  {
+    "variant": "V2_hidden",
+    "config": "All heuristic",
+    "asr": 0.0,
+    "avg_rd": 0.13,
+    "avg_ci": 0.975,
+    "avg_ar": 0.8667
+  },
+  {
+    "variant": "V3_html",
+    "config": "No defense",
+    "asr": 0.0,
+    "avg_rd": 0.0059,
+    "avg_ci": 0.975,
+    "avg_ar": 0.8667
+  },
+  {
+    "variant": "V3_html",
+    "config": "All heuristic",
+    "asr": 0.0,
+    "avg_rd": 0.0187,
+    "avg_ci": 0.975,
+    "avg_ar": 0.8667
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "ar_baseline": 0.8333,
+  "configs": [
+    {
+      "config": "No defense",
+      "avg_ar": 0.7111,
+      "ar_baseline": 0.8333,
+      "ar_delta": 0.1222
+    },
+    {
+      "config": "Filter only",
+      "avg_ar": 0.8333,
+      "ar_baseline": 0.8333,
+      "ar_delta": 0.0
+    },
+    {
+      "config": "Isolate only",
+      "avg_ar": 0.6639,
+      "ar_baseline": 0.8333,
+      "ar_delta": 0.1694
+    },
+    {
+      "config": "Verify only",
+      "avg_ar": 0.5528,
+      "ar_baseline": 0.8333,
+      "ar_delta": 0.2805
+    },
+    {
+      "config": "All defenses",
+      "avg_ar": 0.725,
+      "ar_baseline": 0.8333,
+      "ar_delta": 0.1083
+    }
+  ]
+}

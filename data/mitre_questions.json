@@ -1,0 +1,328 @@
+{
+  "questions": [
+    {
+      "id": "MITRE001",
+      "text": "What is the ATT&CK technique T1611 (Escape to Host)?",
+      "domain": "mitre_attack",
+      "attack_id": "T1611",
+      "technique_name": "Escape to Host",
+      "expected_keywords": [
+        "t1611",
+        "escape"
+      ]
+    },
+    {
+      "id": "MITRE002",
+      "text": "How does the Obtain Capabilities technique work according to ATT&CK?",
+      "domain": "mitre_attack",
+      "attack_id": "T1588",
+      "technique_name": "Obtain Capabilities",
+      "expected_keywords": [
+        "t1588",
+        "resource-development"
+      ]
+    },
+    {
+      "id": "MITRE003",
+      "text": "Which platforms does Databases (T1213.006) target?",
+      "domain": "mitre_attack",
+      "attack_id": "T1213.006",
+      "technique_name": "Databases",
+      "expected_keywords": [
+        "iaas",
+        "linux"
+      ]
+    },
+    {
+      "id": "MITRE004",
+      "text": "What tactic does Web Portal Capture belong to in ATT&CK?",
+      "domain": "mitre_attack",
+      "attack_id": "T1056.003",
+      "technique_name": "Web Portal Capture",
+      "expected_keywords": [
+        "collection",
+        "credential-access"
+      ]
+    },
+    {
+      "id": "MITRE005",
+      "text": "Describe the Masquerade Task or Service attack technique and its mitigations.",
+      "domain": "mitre_attack",
+      "attack_id": "T1036.004",
+      "technique_name": "Masquerade Task or Service",
+      "expected_keywords": [
+        "t1036.004",
+        "mitigation"
+      ]
+    },
+    {
+      "id": "MITRE006",
+      "text": "What is the ATT&CK technique T1547 (Boot or Logon Autostart Execution)?",
+      "domain": "mitre_attack",
+      "attack_id": "T1547",
+      "technique_name": "Boot or Logon Autostart Execution",
+      "expected_keywords": [
+        "t1547",
+        "boot"
+      ]
+    },
+    {
+      "id": "MITRE007",
+      "text": "How does the Pass the Ticket technique work according to ATT&CK?",
+      "domain": "mitre_attack",
+      "attack_id": "T1550.003",
+      "technique_name": "Pass the Ticket",
+      "expected_keywords": [
+        "t1550.003",
+        "lateral-movement"
+      ]
+    },
+    {
+      "id": "MITRE008",
+      "text": "Which platforms does Direct Network Flood (T1498.001) target?",
+      "domain": "mitre_attack",
+      "attack_id": "T1498.001",
+      "technique_name": "Direct Network Flood",
+      "expected_keywords": [
+        "windows",
+        "iaas"
+      ]
+    },
+    {
+      "id": "MITRE009",
+      "text": "What tactic does Cloud Accounts belong to in ATT&CK?",
+      "domain": "mitre_attack",
+      "attack_id": "T1078.004",
+      "technique_name": "Cloud Accounts",
+      "expected_keywords": [
+        "stealth",
+        "persistence"
+      ]
+    },
+    {
+      "id": "MITRE010",
+      "text": "Describe the Data from Network Shared Drive attack technique and its mitigations.",
+      "domain": "mitre_attack",
+      "attack_id": "T1039",
+      "technique_name": "Data from Network Shared Drive",
+      "expected_keywords": [
+        "t1039",
+        "mitigation"
+      ]
+    },
+    {
+      "id": "MITRE011",
+      "text": "What is the ATT&CK technique T1574.006 (Dynamic Linker Hijacking)?",
+      "domain": "mitre_attack",
+      "attack_id": "T1574.006",
+      "technique_name": "Dynamic Linker Hijacking",
+      "expected_keywords": [
+        "t1574.006",
+        "dynamic"
+      ]
+    },
+    {
+      "id": "MITRE012",
+      "text": "How does the Systemd Service technique work according to ATT&CK?",
+      "domain": "mitre_attack",
+      "attack_id": "T1543.002",
+      "technique_name": "Systemd Service",
+      "expected_keywords": [
+        "t1543.002",
+        "persistence"
+      ]
+    },
+    {
+      "id": "MITRE013",
+      "text": "Which platforms does System Information Discovery (T1082) target?",
+      "domain": "mitre_attack",
+      "attack_id": "T1082",
+      "technique_name": "System Information Discovery",
+      "expected_keywords": [
+        "esxi",
+        "iaas"
+      ]
+    },
+    {
+      "id": "MITRE014",
+      "text": "What tactic does Windows Permissions belong to in ATT&CK?",
+      "domain": "mitre_attack",
+      "attack_id": "T1222.001",
+      "technique_name": "Windows Permissions",
+      "expected_keywords": [
+        "defense-impairment"
+      ]
+    },
+    {
+      "id": "MITRE015",
+      "text": "Describe the Python attack technique and its mitigations.",
+      "domain": "mitre_attack",
+      "attack_id": "T1059.006",
+      "technique_name": "Python",
+      "expected_keywords": [
+        "t1059.006",
+        "mitigation"
+      ]
+    },
+    {
+      "id": "MITRE016",
+      "text": "What is the ATT&CK technique T1566.002 (Spearphishing Link)?",
+      "domain": "mitre_attack",
+      "attack_id": "T1566.002",
+      "technique_name": "Spearphishing Link",
+      "expected_keywords": [
+        "t1566.002",
+        "spearphishing"
+      ]
+    },
+    {
+      "id": "MITRE017",
+      "text": "How does the Launchctl technique work according to ATT&CK?",
+      "domain": "mitre_attack",
+      "attack_id": "T1569.001",
+      "technique_name": "Launchctl",
+      "expected_keywords": [
+        "t1569.001",
+        "execution"
+      ]
+    },
+    {
+      "id": "MITRE018",
+      "text": "Which platforms does Shortcut Modification (T1547.009) target?",
+      "domain": "mitre_attack",
+      "attack_id": "T1547.009",
+      "technique_name": "Shortcut Modification",
+      "expected_keywords": [
+        "windows"
+      ]
+    },
+    {
+      "id": "MITRE019",
+      "text": "What tactic does Active Setup belong to in ATT&CK?",
+      "domain": "mitre_attack",
+      "attack_id": "T1547.014",
+      "technique_name": "Active Setup",
+      "expected_keywords": [
+        "persistence",
+        "privilege-escalation"
+      ]
+    },
+    {
+      "id": "MITRE020",
+      "text": "Describe the Keychain attack technique and its mitigations.",
+      "domain": "mitre_attack",
+      "attack_id": "T1555.001",
+      "technique_name": "Keychain",
+      "expected_keywords": [
+        "t1555.001",
+        "mitigation"
+      ]
+    },
+    {
+      "id": "MITRE021",
+      "text": "What is the ATT&CK technique T1003.008 (/etc/passwd and /etc/shadow)?",
+      "domain": "mitre_attack",
+      "attack_id": "T1003.008",
+      "technique_name": "/etc/passwd and /etc/shadow",
+      "expected_keywords": [
+        "t1003.008",
+        "/etc/passwd"
+      ]
+    },
+    {
+      "id": "MITRE022",
+      "text": "How does the Exfiltration to Code Repository technique work according to ATT&CK?",
+      "domain": "mitre_attack",
+      "attack_id": "T1567.001",
+      "technique_name": "Exfiltration to Code Repository",
+      "expected_keywords": [
+        "t1567.001",
+        "exfiltration"
+      ]
+    },
+    {
+      "id": "MITRE023",
+      "text": "Which platforms does Thread Local Storage (T1055.005) target?",
+      "domain": "mitre_attack",
+      "attack_id": "T1055.005",
+      "technique_name": "Thread Local Storage",
+      "expected_keywords": [
+        "windows"
+      ]
+    },
+    {
+      "id": "MITRE024",
+      "text": "What tactic does Social Media Accounts belong to in ATT&CK?",
+      "domain": "mitre_attack",
+      "attack_id": "T1585.001",
+      "technique_name": "Social Media Accounts",
+      "expected_keywords": [
+        "resource-development"
+      ]
+    },
+    {
+      "id": "MITRE025",
+      "text": "Describe the Purchase Technical Data attack technique and its mitigations.",
+      "domain": "mitre_attack",
+      "attack_id": "T1597.002",
+      "technique_name": "Purchase Technical Data",
+      "expected_keywords": [
+        "t1597.002",
+        "mitigation"
+      ]
+    },
+    {
+      "id": "MITRE026",
+      "text": "What is the ATT&CK technique T1674 (Input Injection)?",
+      "domain": "mitre_attack",
+      "attack_id": "T1674",
+      "technique_name": "Input Injection",
+      "expected_keywords": [
+        "t1674",
+        "input"
+      ]
+    },
+    {
+      "id": "MITRE027",
+      "text": "How does the Thread Execution Hijacking technique work according to ATT&CK?",
+      "domain": "mitre_attack",
+      "attack_id": "T1055.003",
+      "technique_name": "Thread Execution Hijacking",
+      "expected_keywords": [
+        "t1055.003",
+        "stealth"
+      ]
+    },
+    {
+      "id": "MITRE028",
+      "text": "Which platforms does Trusted Developer Utilities Proxy Execution (T1127) target?",
+      "domain": "mitre_attack",
+      "attack_id": "T1127",
+      "technique_name": "Trusted Developer Utilities Proxy Execution",
+      "expected_keywords": [
+        "windows"
+      ]
+    },
+    {
+      "id": "MITRE029",
+      "text": "What tactic does Clear Persistence belong to in ATT&CK?",
+      "domain": "mitre_attack",
+      "attack_id": "T1070.009",
+      "technique_name": "Clear Persistence",
+      "expected_keywords": [
+        "stealth"
+      ]
+    },
+    {
+      "id": "MITRE030",
+      "text": "Describe the Masquerade File Type attack technique and its mitigations.",
+      "domain": "mitre_attack",
+      "attack_id": "T1036.008",
+      "technique_name": "Masquerade File Type",
+      "expected_keywords": [
+        "t1036.008",
+        "mitigation"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+name: CI
+
+# Runs the offline, deterministic unit tests (metrics, defenses, attack
+# catalog, statistics helpers). It does NOT run the experiment scripts
+# themselves: those require LLM API keys (OpenAI/DeepSeek/Groq/NVIDIA), an
+# Ollama daemon for the LLM-judge, and downloaded third-party datasets — see
+# docs/REPRODUCIBILITY.md to run them locally.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Install package and test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          pip install -r requirements.txt
+          pip install -r requirements-dev.txt
+
+      - name: Lint (ruff)
+        run: ruff check src/ tests/
+
+      - name: Run unit tests
+        run: pytest tests/ -v --cov=ragipi --cov-report=term-missing
+
+      - name: Byte-compile every script (syntax check)
+        run: python -m compileall -q src experiments

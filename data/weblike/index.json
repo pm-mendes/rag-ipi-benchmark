@@ -1,0 +1,228 @@
+{
+  "clean_documents": [
+    {
+      "filename": "data/weblike/html_pages/html_pages_01.txt",
+      "category": "html_pages",
+      "topic": "Paris tourist attractions overview"
+    },
+    {
+      "filename": "data/weblike/html_pages/html_pages_02.txt",
+      "category": "html_pages",
+      "topic": "Eiffel Tower history and architecture"
+    },
+    {
+      "filename": "data/weblike/html_pages/html_pages_03.txt",
+      "category": "html_pages",
+      "topic": "Louvre Museum collection highlights"
+    },
+    {
+      "filename": "data/weblike/html_pages/html_pages_04.txt",
+      "category": "html_pages",
+      "topic": "Napoleon Bonaparte biography summary"
+    },
+    {
+      "filename": "data/weblike/html_pages/html_pages_05.txt",
+      "category": "html_pages",
+      "topic": "RAG systems in enterprise AI applications"
+    },
+    {
+      "filename": "data/weblike/html_pages/html_pages_06.txt",
+      "category": "html_pages",
+      "topic": "LLM security vulnerabilities overview"
+    },
+    {
+      "filename": "data/weblike/html_pages/html_pages_07.txt",
+      "category": "html_pages",
+      "topic": "Prompt injection attack taxonomy"
+    },
+    {
+      "filename": "data/weblike/html_pages/html_pages_08.txt",
+      "category": "html_pages",
+      "topic": "RAG architecture best practices"
+    },
+    {
+      "filename": "data/weblike/html_pages/html_pages_09.txt",
+      "category": "html_pages",
+      "topic": "MITRE ATT&CK framework introduction"
+    },
+    {
+      "filename": "data/weblike/html_pages/html_pages_10.txt",
+      "category": "html_pages",
+      "topic": "Cybersecurity defense strategies"
+    },
+    {
+      "filename": "data/weblike/markdown_docs/markdown_docs_01.txt",
+      "category": "markdown_docs",
+      "topic": "Getting started with RAG pipelines"
+    },
+    {
+      "filename": "data/weblike/markdown_docs/markdown_docs_02.txt",
+      "category": "markdown_docs",
+      "topic": "ChromaDB vector store setup guide"
+    },
+    {
+      "filename": "data/weblike/markdown_docs/markdown_docs_03.txt",
+      "category": "markdown_docs",
+      "topic": "Sentence transformers embedding guide"
+    },
+    {
+      "filename": "data/weblike/markdown_docs/markdown_docs_04.txt",
+      "category": "markdown_docs",
+      "topic": "LangChain RAG tutorial"
+    },
+    {
+      "filename": "data/weblike/markdown_docs/markdown_docs_05.txt",
+      "category": "markdown_docs",
+      "topic": "Prompt engineering best practices"
+    },
+    {
+      "filename": "data/weblike/markdown_docs/markdown_docs_06.txt",
+      "category": "markdown_docs",
+      "topic": "LLM evaluation metrics overview"
+    },
+    {
+      "filename": "data/weblike/markdown_docs/markdown_docs_07.txt",
+      "category": "markdown_docs",
+      "topic": "Retrieval strategies comparison BM25 vs dense"
+    },
+    {
+      "filename": "data/weblike/markdown_docs/markdown_docs_08.txt",
+      "category": "markdown_docs",
+      "topic": "Defense-in-depth for AI systems"
+    },
+    {
+      "filename": "data/weblike/markdown_docs/markdown_docs_09.txt",
+      "category": "markdown_docs",
+      "topic": "Security testing for LLM applications"
+    },
+    {
+      "filename": "data/weblike/markdown_docs/markdown_docs_10.txt",
+      "category": "markdown_docs",
+      "topic": "Knowledge base curation guidelines"
+    },
+    {
+      "filename": "data/weblike/forum_posts/forum_posts_01.txt",
+      "category": "forum_posts",
+      "topic": "How do RAG systems handle adversarial inputs?"
+    },
+    {
+      "filename": "data/weblike/forum_posts/forum_posts_02.txt",
+      "category": "forum_posts",
+      "topic": "Best practices for securing vector databases"
+    },
+    {
+      "filename": "data/weblike/forum_posts/forum_posts_03.txt",
+      "category": "forum_posts",
+      "topic": "Comparing retrieval strategies for RAG"
+    },
+    {
+      "filename": "data/weblike/forum_posts/forum_posts_04.txt",
+      "category": "forum_posts",
+      "topic": "How to evaluate RAG system performance"
+    },
+    {
+      "filename": "data/weblike/forum_posts/forum_posts_05.txt",
+      "category": "forum_posts",
+      "topic": "Prompt injection prevention techniques"
+    },
+    {
+      "filename": "data/weblike/forum_posts/forum_posts_06.txt",
+      "category": "forum_posts",
+      "topic": "LLM hallucination mitigation strategies"
+    },
+    {
+      "filename": "data/weblike/forum_posts/forum_posts_07.txt",
+      "category": "forum_posts",
+      "topic": "ChromaDB vs Pinecone for production RAG"
+    },
+    {
+      "filename": "data/weblike/forum_posts/forum_posts_08.txt",
+      "category": "forum_posts",
+      "topic": "Fine-tuning vs RAG for domain-specific tasks"
+    },
+    {
+      "filename": "data/weblike/forum_posts/forum_posts_09.txt",
+      "category": "forum_posts",
+      "topic": "Security implications of open-source LLMs"
+    },
+    {
+      "filename": "data/weblike/forum_posts/forum_posts_10.txt",
+      "category": "forum_posts",
+      "topic": "Multi-hop reasoning in HotpotQA-style RAG"
+    },
+    {
+      "filename": "data/weblike/email_threads/email_threads_01.txt",
+      "category": "email_threads",
+      "topic": "Enterprise RAG deployment security review"
+    },
+    {
+      "filename": "data/weblike/email_threads/email_threads_02.txt",
+      "category": "email_threads",
+      "topic": "AI system audit findings and recommendations"
+    },
+    {
+      "filename": "data/weblike/email_threads/email_threads_03.txt",
+      "category": "email_threads",
+      "topic": "LLM integration project status update"
+    },
+    {
+      "filename": "data/weblike/email_threads/email_threads_04.txt",
+      "category": "email_threads",
+      "topic": "Security incident report: prompt injection attempt"
+    },
+    {
+      "filename": "data/weblike/email_threads/email_threads_05.txt",
+      "category": "email_threads",
+      "topic": "Knowledge base maintenance procedures"
+    },
+    {
+      "filename": "data/weblike/email_threads/email_threads_06.txt",
+      "category": "email_threads",
+      "topic": "AI vendor evaluation criteria"
+    },
+    {
+      "filename": "data/weblike/email_threads/email_threads_07.txt",
+      "category": "email_threads",
+      "topic": "Compliance requirements for AI systems"
+    },
+    {
+      "filename": "data/weblike/email_threads/email_threads_08.txt",
+      "category": "email_threads",
+      "topic": "RAG system performance optimization request"
+    },
+    {
+      "filename": "data/weblike/email_threads/email_threads_09.txt",
+      "category": "email_threads",
+      "topic": "Security policy for AI-generated content"
+    },
+    {
+      "filename": "data/weblike/email_threads/email_threads_10.txt",
+      "category": "email_threads",
+      "topic": "Data governance for AI knowledge bases"
+    }
+  ],
+  "adversarial_documents": [
+    {
+      "filename": "data/weblike/adversarial/html_comment_injection.txt",
+      "attack_family": "HTML_COMMENT_INJECTION"
+    },
+    {
+      "filename": "data/weblike/adversarial/markdown_hidden_injection.txt",
+      "attack_family": "MARKDOWN_HIDDEN_INJECTION"
+    },
+    {
+      "filename": "data/weblike/adversarial/email_footer_injection.txt",
+      "attack_family": "EMAIL_FOOTER_INJECTION"
+    },
+    {
+      "filename": "data/weblike/adversarial/forum_spoiler_injection.txt",
+      "attack_family": "FORUM_SPOILER_INJECTION"
+    },
+    {
+      "filename": "data/weblike/adversarial/meta_tag_injection.txt",
+      "attack_family": "META_TAG_INJECTION"
+    }
+  ],
+  "total_clean": 40,
+  "total_adversarial": 5
+}

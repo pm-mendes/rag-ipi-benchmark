@@ -12,7 +12,7 @@ authors:
   - family-names: Khoukhi
     given-names: Lyes
 license: MIT
-repository-code: "https://github.com/<org>/rag-ipi-benchmark"
+repository-code: "https://github.com/pm-mendes/rag-ipi-benchmark"
 preferred-citation:
   type: conference-paper
   title: "Evaluating Indirect Prompt Injection in RAG Systems: Defense-in-Depth, Retrieval Effects, and Security-Utility Trade-offs"

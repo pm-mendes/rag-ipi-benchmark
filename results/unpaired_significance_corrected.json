@@ -1,0 +1,22 @@
+{
+  "dense_vs_bm25": {
+    "k1": 13,
+    "n1": 60,
+    "k2": 4,
+    "n2": 60,
+    "fisher_odds_ratio": 3.8723,
+    "fisher_p": 0.0339,
+    "chi2": 4.3861,
+    "chi2_p": 0.0362
+  },
+  "l1b_vs_semantic_full": {
+    "k1": 2,
+    "n1": 20,
+    "k2": 4,
+    "n2": 20,
+    "fisher_odds_ratio": 0.4444,
+    "fisher_p": 0.6614,
+    "chi2": 0.1961,
+    "chi2_p": 0.6579
+  }
+}

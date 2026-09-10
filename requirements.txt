@@ -25,6 +25,11 @@ numpy==2.4.6
 scipy==1.14.1
 scikit-learn==1.5.2
 matplotlib==3.9.2
+rank_bm25==0.2.2  # required by langchain_community.retrievers.BM25Retriever
+                  # (retriever_strategy.py, retriever_optimized_attacks.py) —
+                  # was missing from this file; discovered during camera-ready
+                  # revision when a fresh install failed on it, see
+                  # CHANGELOG_camera_ready.md
 
 # Utilities
 python-dotenv==1.0.1

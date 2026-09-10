@@ -59,8 +59,19 @@ OPENAI_MODEL    = os.getenv("OPENAI_MODEL", "gpt-3.5-turbo")
 TOP_K           = int(os.getenv("TOP_K", 3))
 
 # ── 3 seeds pour les tests statistiques ──────────────────────────────────────
-
-SEEDS = [456]
+# NOTE (camera-ready audit): this was found hardcoded to a single seed
+# ([456]), which silently regressed this script from a real 3-seed run to
+# a 1-seed run — results/statistical_results.json (produced by that state
+# of the script) has std=0.0 everywhere for exactly that reason, not
+# because the pipeline is actually deterministic. The genuine 3-seed data
+# still exists in results/statistical_log.txt (seeds 42, 123 complete) +
+# results/statistical_seed456.txt (seed 456, from a separate patch-up run
+# after the original 3-seed run crashed on a Chroma path-reuse error mid-way
+# through seed 456) and has been recovered into
+# results/statistical_results_RECOVERED_3seeds.json — see
+# docs/AUDIT_camera_ready.md, Finding A. Restored to the original 3 seeds
+# below so a future re-run reproduces a real 3-seed experiment again.
+SEEDS = [42, 123, 456]
 
 CONFIGS = [
     {"name": "No defense",   "filter": False, "isolate": False, "verify": False},

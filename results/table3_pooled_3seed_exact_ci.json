@@ -1,0 +1,52 @@
+{
+  "No defense": {
+    "successes": 42,
+    "n_trials": 180,
+    "asr": 0.2333,
+    "ci95": {
+      "type": "two-sided",
+      "lower": 0.17363804962829063,
+      "upper": 0.30202813940344764
+    }
+  },
+  "Filter only": {
+    "successes": 3,
+    "n_trials": 180,
+    "asr": 0.0167,
+    "ci95": {
+      "type": "two-sided",
+      "lower": 0.0034503441969729372,
+      "upper": 0.047932200496390846
+    }
+  },
+  "Isolate only": {
+    "successes": 40,
+    "n_trials": 180,
+    "asr": 0.2222,
+    "ci95": {
+      "type": "two-sided",
+      "lower": 0.16375630206886072,
+      "upper": 0.29007120474361525
+    }
+  },
+  "Verify only": {
+    "successes": 0,
+    "n_trials": 180,
+    "asr": 0.0,
+    "ci95": {
+      "type": "one-sided upper",
+      "lower": 0.0,
+      "upper": 0.016505228195662736
+    }
+  },
+  "All defenses": {
+    "successes": 0,
+    "n_trials": 180,
+    "asr": 0.0,
+    "ci95": {
+      "type": "one-sided upper",
+      "lower": 0.0,
+      "upper": 0.016505228195662736
+    }
+  }
+}

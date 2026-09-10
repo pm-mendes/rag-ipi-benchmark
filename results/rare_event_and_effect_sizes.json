@@ -1,0 +1,78 @@
+{
+  "ablation_v2": {
+    "No defense": {
+      "successes": 14,
+      "n_trials": 60,
+      "n_attacks": 6,
+      "n_queries_per_attack": 10,
+      "exact_ci": {
+        "type": "two-sided (Clopper-Pearson)",
+        "point": 0.23333333333333334,
+        "lower": 0.13383734388884805,
+        "upper": 0.3603827871057575
+      }
+    },
+    "Filter only": {
+      "successes": 1,
+      "n_trials": 60,
+      "n_attacks": 6,
+      "n_queries_per_attack": 10,
+      "exact_ci": {
+        "type": "two-sided (Clopper-Pearson)",
+        "point": 0.016666666666666666,
+        "lower": 0.00042187445234200883,
+        "upper": 0.08939905005748702
+      }
+    },
+    "Isolate only": {
+      "successes": 12,
+      "n_trials": 60,
+      "n_attacks": 6,
+      "n_queries_per_attack": 10,
+      "exact_ci": {
+        "type": "two-sided (Clopper-Pearson)",
+        "point": 0.2,
+        "lower": 0.107841122524362,
+        "upper": 0.32330042380129054
+      }
+    },
+    "Verify only": {
+      "successes": 0,
+      "n_trials": 60,
+      "n_attacks": 6,
+      "n_queries_per_attack": 10,
+      "exact_ci": {
+        "type": "one-sided upper (rule for zero events)",
+        "point": 0.0,
+        "lower": 0.0,
+        "upper": 0.04870291331009749
+      }
+    },
+    "All defenses": {
+      "successes": 0,
+      "n_trials": 60,
+      "n_attacks": 6,
+      "n_queries_per_attack": 10,
+      "exact_ci": {
+        "type": "one-sided upper (rule for zero events)",
+        "point": 0.0,
+        "lower": 0.0,
+        "upper": 0.04870291331009749
+      }
+    }
+  },
+  "effect_no_defense_vs_all": {
+    "risk_difference": 0.23333333333333334,
+    "se": 0.054602943890247176,
+    "ci95_low": 0.1263135298585875,
+    "ci95_high": 0.3403531368080792,
+    "n1": 60,
+    "n2": 60,
+    "small_n_warning": false
+  },
+  "mcnemar_l1b_vs_semantic_power_check": {
+    "n_pairs": 20,
+    "minimum_detectable_discordance_diff_at_80pct_power": 0.6264534992459172,
+    "interpretation": "At n=20 paired queries, a test at alpha=0.05 with 80% power could only reliably detect a discordance-rate difference of roughly 62.6% or larger. The reported non-significant p=0.480 (chi2=0.500) is consistent with a real effect of this or smaller magnitude going undetected -- 'not significant' at this n means 'underpowered to confirm or rule out the effect size actually observed', not 'no effect'. Report both facts together, per the brief's required phrasing: 'we observe a recurring non-monotonic pattern' rather than 'non-monotonicity is proven' or 'disproven'."
+  }
+}
